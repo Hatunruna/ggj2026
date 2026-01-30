@@ -3,12 +3,16 @@
 #ifndef GFT_WORLD_STATE_H
 #define GFT_WORLD_STATE_H
 
+#include <gf2/core/Vec2.h>
+
 namespace gft {
   struct WorldData;
 
   struct WorldState {
 
     void bind(const WorldData& data);
+
+    gf::Vec2F hero_location = {0.0f, 0.0f};
   };
 
 }

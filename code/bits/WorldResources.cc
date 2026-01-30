@@ -4,20 +4,25 @@
 #include "WorldResources.h"
 
 #include <gf2/core/Color.h>
+#include <gf2/core/ShapeBuffer.h>
 #include <gf2/framework/BundleBuilder.h>
 
 #include "Game.h"
+#include "Constants.h"
 
 namespace gft {
 
   WorldResources::WorldResources()
   {
-
+    hero_shape.buffer = gf::ShapeBuffer::make_circle(gf::CircF::from_radius(TileSize.w));
+    hero_shape.buffer.color = gf::Green;
   }
 
   gf::ResourceBundle WorldResources::bundle(Game* game) const
   {
     gf::BundleBuilder builder(game);
+
+    // builder.add_in_bundle(hero_shape);
 
     return builder.make_bundle();
   }
