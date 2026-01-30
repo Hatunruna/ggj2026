@@ -19,6 +19,7 @@ namespace glt {
 
     void do_process_event(const gf::Event& event) override;
     void do_handle_actions() override;
+    void do_update(gf::Time time) override;
 
   private:
     static gf::ActionGroupSettings compute_settings();

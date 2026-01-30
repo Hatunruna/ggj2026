@@ -14,6 +14,9 @@ namespace glt {
     WorldState state;
 
     void update(gf::Time time) override;
+
+  private:
+    void hero_move(gf::Time time);
   };
 
 }

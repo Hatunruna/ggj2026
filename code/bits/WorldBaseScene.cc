@@ -4,6 +4,7 @@
 #include "WorldBaseScene.h"
 
 #include <gf2/core/Color.h>
+#include <gf2/core/Direction.h>
 #include <gf2/core/Keycode.h>
 #include <gf2/core/Log.h>
 #include <gf2/core/Scancode.h>
@@ -20,8 +21,10 @@ namespace glt {
   {
     set_clear_color(gf::White);
 
-    set_window_size(TileSize * 10);
+    set_world_size(TileSize * 10);
     set_world_center(TileSize * 5);
+
+    add_model(game->world_model());
 
     m_hero.set_location(TileSize * 5);
     add_world_entity(&m_hero);
@@ -50,10 +53,23 @@ namespace glt {
     using namespace gf::literals;
 
     if (m_action_group.active("up"_id)) {
-      m_game->world_model()->state.hero_location.y -= TileSize.h;
+      m_game->world_state()->process_hero_move(gf::Direction::Up);
+    } else if (m_action_group.active("down"_id)) {
+      m_game->world_state()->process_hero_move(gf::Direction::Down);
+    } else if (m_action_group.active("left"_id)) {
+      m_game->world_state()->process_hero_move(gf::Direction::Left);
+    } else if (m_action_group.active("right"_id)) {
+      m_game->world_state()->process_hero_move(gf::Direction::Right);
     }
 
     m_action_group.reset();
+  }
+
+  void WorldBaseScene::do_update([[maybe_unused]] gf::Time time)
+  {
+    update_entities(time);
+
+    m_hero.set_location(m_game->world_state()->hero.middle);
   }
 
 }

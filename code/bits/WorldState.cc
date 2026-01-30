@@ -3,11 +3,33 @@
 
 #include "WorldState.h"
 
+#include <gf2/core/Log.h>
+
+#include "Constants.h"
+
 namespace glt {
 
   void WorldState::bind(const WorldData& data)
   {
 
+  }
+
+  void WorldState::process_hero_move(gf::Direction direction)
+  {
+    if (hero.move_cooldown < HeroMoveCooldown) {
+      return;
+    }
+
+    hero.direction = direction;
+
+    gf::Vec2I next_location = hero.location + gf::displacement(direction);
+
+    if (hero.location == next_location) {
+      return;
+    }
+
+    hero.target = next_location;
+    hero.move_cooldown = gf::seconds(0);
   }
 
 }
