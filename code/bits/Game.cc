@@ -9,14 +9,14 @@
 
 #include "config.h"
 
-namespace gft {
+namespace glt {
 
   Game::Game(const std::filesystem::path& asset_directory)
-  : gf::SceneSystem("Game", { 1600, 900 }, asset_directory)
+  : gf::SceneSystem("Gelatine", { 1600, 900 }, asset_directory)
   , m_async(render_manager())
   {
 #ifdef SDL_PLATFORM_LINUX
-    resource_manager()->add_search_directory(gft::GameDataDirectory);
+    resource_manager()->add_search_directory(glt::GameDataDirectory);
 #endif
     resource_manager()->add_search_directory(gf::application_base_path());
 

@@ -10,7 +10,7 @@
 #include "Game.h"
 #include "Constants.h"
 
-namespace gft {
+namespace glt {
 
   WorldResources::WorldResources()
   {

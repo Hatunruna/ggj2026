@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // Copyright (c) 2025 Julien Bernard
-#ifndef GFT_WORLD_BASE_SCENE_H
-#define GFT_WORLD_BASE_SCENE_H
+#ifndef GLT_WORLD_BASE_SCENE_H
+#define GLT_WORLD_BASE_SCENE_H
 
 #include <gf2/core/ActionGroup.h>
 
@@ -10,7 +10,7 @@
 
 #include "WorldResources.h"
 
-namespace gft {
+namespace glt {
   class Game;
 
   class WorldBaseScene : public gf::Scene {
@@ -31,4 +31,4 @@ namespace gft {
 
 }
 
-#endif // GFT_WORLD_BASE_SCENE_H
+#endif // GLT_WORLD_BASE_SCENE_H

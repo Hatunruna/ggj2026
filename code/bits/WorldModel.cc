@@ -3,7 +3,7 @@
 
 #include "WorldModel.h"
 
-namespace gft {
+namespace glt {
 
   void WorldModel::update(gf::Time time)
   {

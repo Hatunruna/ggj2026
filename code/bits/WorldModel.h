@@ -1,13 +1,13 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // Copyright (c) 2025 Julien Bernard
-#ifndef GFT_WORLD_MODEL_H
-#define GFT_WORLD_MODEL_H
+#ifndef GLT_WORLD_MODEL_H
+#define GLT_WORLD_MODEL_H
 
 #include <gf2/core/Model.h>
 #include "WorldData.h"
 #include "WorldState.h"
 
-namespace gft {
+namespace glt {
 
   struct WorldModel : public gf::Model {
     WorldData data;
@@ -18,4 +18,4 @@ namespace gft {
 
 }
 
-#endif // GFT_WORLD_MODEL_H
+#endif // GLT_WORLD_MODEL_H

@@ -12,6 +12,6 @@ int WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmdshow)
 int main()
 #endif
 {
-  gft::Game game(std::filesystem::current_path() / "data");
+  glt::Game game(std::filesystem::current_path() / "data");
   return game.run();
 }

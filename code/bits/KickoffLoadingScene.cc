@@ -7,7 +7,7 @@
 
 #include "Game.h"
 
-namespace gft {
+namespace glt {
 
   namespace {
 

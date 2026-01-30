@@ -3,7 +3,7 @@
 
 #include "WorldAct.h"
 
-namespace gft {
+namespace glt {
 
   WorldAct::WorldAct(Game* game, const WorldResources& resources)
   : base_scene(game, resources)

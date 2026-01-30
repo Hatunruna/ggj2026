@@ -1,14 +1,14 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // Copyright (c) 2025 Julien Bernard
-#ifndef GFT_WORLD_RESOURCES_H
-#define GFT_WORLD_RESOURCES_H
+#ifndef GLT_WORLD_RESOURCES_H
+#define GLT_WORLD_RESOURCES_H
 
 #include <gf2/core/ResourceBundle.h>
 
 #include <gf2/graphics/Shape.h>
 #include <gf2/graphics/Text.h>
 
-namespace gft {
+namespace glt {
   class Game;
 
   struct WorldResources {
@@ -22,4 +22,4 @@ namespace gft {
 
 }
 
-#endif // GFT_WORLD_RESOURCES_H
+#endif // GLT_WORLD_RESOURCES_H

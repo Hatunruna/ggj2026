@@ -3,7 +3,7 @@
 
 #include "KickoffAct.h"
 
-namespace gft {
+namespace glt {
 
   KickoffAct::KickoffAct(Game* game, const KickoffResources& resources)
   : menu_scene(game, resources)

@@ -12,7 +12,7 @@
 #include "WorldModel.h"
 #include "WorldResources.h"
 
-namespace gft {
+namespace glt {
 
   class Game : public gf::SceneSystem {
   public:

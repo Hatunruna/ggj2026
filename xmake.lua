@@ -1,6 +1,6 @@
 -- SPDX-License-Identifier: GPL-3.0-or-later
 -- Copyright (c) 2025 Julien Bernard
-set_project("game")
+set_project("gelatine")
 set_version("1.0.0")
 
 add_repositories("gf-repo https://github.com/GamedevFramework/xmake-repo")
@@ -38,7 +38,7 @@ set_configdir("$(builddir)/config")
 set_configvar("GAME_DATADIR", "$(projectdir)/data")
 add_configfiles("code/config.h.in", {pattern = "@(.-)@"})
 
-target("game")
+target("gelatine")
     set_kind("binary")
     add_files("code/main.cc")
     add_files("code/bits/*.cc")
@@ -54,14 +54,14 @@ target("game")
         end
     end
 
-xpack("game")
+xpack("gelatine")
     set_formats("nsis", "zip", "targz")
-    set_title("game")
+    set_title("gelatine")
     set_author("team")
-    set_description("Game 3000")
+    set_description("Gelatine")
     set_homepage("https://example.com")
     set_licensefile("LICENSE")
-    add_targets("game")
+    add_targets("gelatine")
     set_bindir(".")
     add_installfiles("(data/*)")
     -- add_sourcefiles("(src/**)")

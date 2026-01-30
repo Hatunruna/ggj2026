@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // Copyright (c) 2025 Julien Bernard
-#ifndef GFT_WORLD_DATA_H
-#define GFT_WORLD_DATA_H
+#ifndef GLT_WORLD_DATA_H
+#define GLT_WORLD_DATA_H
 
-namespace gft {
+namespace glt {
 
   struct WorldData {
     WorldData();
@@ -12,4 +12,4 @@ namespace gft {
 
 }
 
-#endif // GFT_WORLD_DATA_H
+#endif // GLT_WORLD_DATA_H

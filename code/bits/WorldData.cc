@@ -3,7 +3,7 @@
 
 #include "WorldData.h"
 
-namespace gft {
+namespace glt {
 
   WorldData::WorldData()
   {

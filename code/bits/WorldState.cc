@@ -3,7 +3,7 @@
 
 #include "WorldState.h"
 
-namespace gft {
+namespace glt {
 
   void WorldState::bind(const WorldData& data)
   {

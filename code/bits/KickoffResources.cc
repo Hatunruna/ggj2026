@@ -8,12 +8,12 @@
 
 #include "Game.h"
 
-namespace gft {
+namespace glt {
 
   KickoffResources::KickoffResources()
   {
-    main_title_text.font = "Oxanium-Regular.ttf";
-    main_title_text.data.content = "Game 3000";
+    main_title_text.font = "thickhea.ttf";
+    main_title_text.data.content = "Gelatine";
     main_title_text.data.color = gf::Yellow;
     main_title_text.data.character_size = 128.0f;
 

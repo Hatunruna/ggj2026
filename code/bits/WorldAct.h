@@ -1,12 +1,12 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // Copyright (c) 2025 Julien Bernard
-#ifndef GFT_WORLD_ACT_H
-#define GFT_WORLD_ACT_H
+#ifndef GLT_WORLD_ACT_H
+#define GLT_WORLD_ACT_H
 
 #include "WorldBaseScene.h"
 #include "WorldResources.h"
 
-namespace gft {
+namespace glt {
   class Game;
 
   struct WorldAct {
@@ -18,4 +18,4 @@ namespace gft {
 
 }
 
-#endif // GFT_WORLD_ACT_H
+#endif // GLT_WORLD_ACT_H

@@ -1,11 +1,11 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // Copyright (c) 2025 Julien Bernard
-#ifndef GFT_WORLD_STATE_H
-#define GFT_WORLD_STATE_H
+#ifndef GLT_WORLD_STATE_H
+#define GLT_WORLD_STATE_H
 
 #include <gf2/core/Vec2.h>
 
-namespace gft {
+namespace glt {
   struct WorldData;
 
   struct WorldState {
@@ -17,4 +17,4 @@ namespace gft {
 
 }
 
-#endif // GFT_WORLD_STATE_H
+#endif // GLT_WORLD_STATE_H

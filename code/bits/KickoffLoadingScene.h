@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // Copyright (c) 2025 Julien Bernard
-#ifndef GFT_KICKOFF_LOADING_SCENE_H
-#define GFT_KICKOFF_LOADING_SCENE_H
+#ifndef GLT_KICKOFF_LOADING_SCENE_H
+#define GLT_KICKOFF_LOADING_SCENE_H
 
 #include <gf2/graphics/Scene.h>
 
@@ -10,7 +10,7 @@
 
 #include "KickoffResources.h"
 
-namespace gft {
+namespace glt {
   class Game;
 
   class KickoffLoadingScene : public gf::Scene {
@@ -29,4 +29,4 @@ namespace gft {
 
 }
 
-#endif // GFT_KICKOFF_LOADING_SCENE_H
+#endif // GLT_KICKOFF_LOADING_SCENE_H

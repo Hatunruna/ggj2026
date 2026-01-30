@@ -1,13 +1,13 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // Copyright (c) 2025 Julien Bernard
-#ifndef GFT_KICKOFF_RESOURCES_H
-#define GFT_KICKOFF_RESOURCES_H
+#ifndef GLT_KICKOFF_RESOURCES_H
+#define GLT_KICKOFF_RESOURCES_H
 
 #include <gf2/core/ResourceBundle.h>
 
 #include <gf2/graphics/Text.h>
 
-namespace gft {
+namespace glt {
   class Game;
 
   struct KickoffResources {
@@ -23,4 +23,4 @@ namespace gft {
 
 }
 
-#endif // GFT_KICKOFF_RESOURCES_H
+#endif // GLT_KICKOFF_RESOURCES_H

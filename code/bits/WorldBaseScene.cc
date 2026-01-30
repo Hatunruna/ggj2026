@@ -11,7 +11,8 @@
 #include "Constants.h"
 #include "Game.h"
 
-namespace gft {
+namespace glt {
+
   WorldBaseScene::WorldBaseScene(Game* game, const WorldResources& resources)
   : m_game(game)
   , m_action_group(compute_settings())
