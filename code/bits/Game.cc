@@ -3,7 +3,6 @@
 #include "Game.h"
 
 #include <filesystem>
-#include <thread>
 
 #include <gf2/graphics/GamePaths.h>
 
@@ -39,8 +38,6 @@ namespace glt {
       world_bundle.load_from(resource_manager());
 
       m_world_act = std::make_unique<WorldAct>(this, m_world_resources);
-
-      std::this_thread::sleep_for(1s); // TODO: remove
     });
   }
 
@@ -55,4 +52,3 @@ namespace glt {
   }
 
 }
-
