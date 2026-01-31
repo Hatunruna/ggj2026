@@ -11,9 +11,9 @@ namespace glt {
   struct WorldData;
 
   struct HeroState {
-    gf::Vec2I location = { 0, 0 };
-    gf::Vec2I target = { 0, 0 };
-    gf::Vec2F middle = {0.0f, 0.0f};
+    gf::Vec2I tile_location = { 0, 0 };
+    gf::Vec2I tile_target = { 0, 0 };
+    gf::Vec2F world_location = {0.0f, 0.0f};
     bool running = false;
     gf::Direction direction = gf::Direction::Center;
     gf::Time move_cooldown;

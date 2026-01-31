@@ -28,13 +28,13 @@ namespace glt {
 
     hero.direction = direction;
 
-    gf::Vec2I next_location = hero.location + gf::displacement(direction);
+    gf::Vec2I next_location = hero.tile_location + gf::displacement(direction);
 
-    if (hero.location == next_location) {
+    if (hero.tile_location == next_location) {
       return;
     }
 
-    hero.target = next_location;
+    hero.tile_target = next_location;
     hero.move_cooldown = gf::seconds(0);
   }
 

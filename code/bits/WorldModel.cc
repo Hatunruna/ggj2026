@@ -16,18 +16,18 @@ namespace glt {
   {
     state.hero.move_cooldown += time;
 
-    if (state.hero.location == state.hero.target) {
-      state.hero.middle = state.hero.location * TileSize;
+    if (state.hero.tile_location == state.hero.tile_target) {
+      state.hero.world_location = state.hero.tile_location * TileSize;
       return;
     }
 
     if (state.hero.move_cooldown > HeroMoveCooldown) {
-      state.hero.location = state.hero.target;
-      state.hero.middle = state.hero.location * TileSize;
+      state.hero.tile_location = state.hero.tile_target;
+      state.hero.world_location = state.hero.tile_location * TileSize;
     } else {
-      state.hero.middle = gf::lerp(
-        state.hero.location * TileSize,
-        state.hero.target * TileSize,
+      state.hero.world_location = gf::lerp(
+        state.hero.tile_location * TileSize,
+        state.hero.tile_target * TileSize,
         state.hero.move_cooldown.as_seconds() / HeroMoveCooldown.as_seconds()
       );
     }

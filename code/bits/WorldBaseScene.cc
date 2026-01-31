@@ -88,7 +88,7 @@ namespace glt {
     } else {
       m_hero.select("pause_left"_id);
     }
-    m_hero.set_location(m_game->world_state()->hero.middle);
+    m_hero.set_location(m_game->world_state()->hero.world_location);
 
     update_entities(time);
   }
