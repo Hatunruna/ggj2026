@@ -10,6 +10,7 @@
 #include <gf2/graphics/AnimationGroupEntity.h>
 #include <gf2/graphics/Scene.h>
 
+#include "MaskColor.h"
 #include "WorldResources.h"
 
 namespace glt {
@@ -25,6 +26,8 @@ namespace glt {
 
   private:
     static gf::ActionGroupSettings compute_settings();
+
+    void change_mask(MaskColor new_mask);
 
     Game* m_game = nullptr;
     gf::ActionGroup m_action_group;

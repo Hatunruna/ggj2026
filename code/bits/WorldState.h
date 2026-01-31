@@ -7,6 +7,8 @@
 #include <gf2/core/Time.h>
 #include <gf2/core/Vec2.h>
 
+#include "MaskColor.h"
+
 namespace glt {
   struct WorldData;
 
@@ -17,6 +19,8 @@ namespace glt {
     bool running = false;
     gf::Direction direction = gf::Direction::Center;
     gf::Time move_cooldown;
+
+    MaskColor mask_color = MaskColor::None;
   };
 
   struct WorldState {
