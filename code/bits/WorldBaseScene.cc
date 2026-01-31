@@ -35,7 +35,6 @@ namespace glt {
 
     add_model(game->world_model());
 
-    m_hero.set_location(TileSize * 5);
     add_world_entity(&m_ground_map);
     add_world_entity(&m_hero);
     add_world_entity(&m_mask_map);

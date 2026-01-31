@@ -32,10 +32,15 @@ namespace glt {
     state.hero.world_location = state.hero.tile_location * TileSize;
 
     if (state.hero.expected_direction != gf::Direction::Center) {
-      state.hero.direction = state.hero.expected_direction;
-      state.hero.tile_target = state.hero.tile_location + gf::displacement(state.hero.direction);;
-      state.hero.move_cooldown = gf::Time();
-      state.hero.running = true;
+      const gf::Vec2I displacement = gf::displacement(state.hero.expected_direction);
+      const gf::Vec2I target = state.hero.tile_location + displacement;
+
+      if (state.map.reachable(target)) {
+        state.hero.direction = state.hero.expected_direction;
+        state.hero.tile_target = target;;
+        state.hero.move_cooldown = gf::Time();
+        state.hero.running = true;
+      }
     }
   }
 

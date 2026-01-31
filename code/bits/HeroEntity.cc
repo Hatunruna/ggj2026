@@ -11,6 +11,8 @@ namespace glt {
   : gf::AnimationGroupEntity(resources.hero_animations, game->render_manager(), game->resource_manager())
   , m_game(game)
   {
+    WorldState* state =game->world_state();
+    state->hero.tile_location = state->hero.tile_target =  state->map.ref->start;
   }
 
   void HeroEntity::update(gf::Time time)

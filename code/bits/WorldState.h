@@ -13,7 +13,6 @@ namespace glt {
   struct WorldState {
     void bind(const WorldData& data);
 
-    void process_hero_move(gf::Direction direction);
     MaskColor current_mask_color() const;
 
     MapState map;
