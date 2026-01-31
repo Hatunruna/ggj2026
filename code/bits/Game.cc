@@ -5,6 +5,7 @@
 #include <filesystem>
 
 #include <gf2/graphics/GamePaths.h>
+#include <gf2/framework/ResourceSystem.h>
 
 #include "config.h"
 
@@ -32,10 +33,11 @@ namespace glt {
     using namespace std::literals;
 
     m_async.run_async([&]() {
-      m_world_model.state.bind(m_world_model.data);
-
       gf::ResourceBundle world_bundle = m_world_resources.bundle(this);
       world_bundle.load_from(resource_manager());
+
+      m_world_model.data.load_map(m_world_resources.tutorial_map, resource_manager());
+      m_world_model.state.bind(m_world_model.data);
 
       m_world_act = std::make_unique<WorldAct>(this, m_world_resources);
     });

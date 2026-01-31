@@ -19,6 +19,7 @@ namespace glt {
     void render(gf::RenderRecorder& recorder) override;
 
   private:
+    Game* m_game = nullptr;
     gf::TiledMapGraphics m_graphics;
     gf::RenderGeometry m_background;
     gf::RenderGeometry m_red_walls;

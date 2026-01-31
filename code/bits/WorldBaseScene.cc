@@ -23,7 +23,9 @@ namespace glt {
   WorldBaseScene::WorldBaseScene(Game* game, const WorldResources& resources)
   : m_game(game)
   , m_action_group(compute_settings())
+  , m_ground_map(game, resources.tutorial_map)
   , m_hero(resources.hero_animations, game->render_manager(), game->resource_manager())
+  , m_mask_map(game, resources.tutorial_map)
   , m_red_mask_sound(game->resource_manager()->get<gf::Sound>(resources.red_mask_audio.filename))
   , m_green_mask_sound(game->resource_manager()->get<gf::Sound>(resources.green_mask_audio.filename))
   , m_blue_mask_sound(game->resource_manager()->get<gf::Sound>(resources.blue_mask_audio.filename))
@@ -36,7 +38,9 @@ namespace glt {
     add_model(game->world_model());
 
     m_hero.set_location(TileSize * 5);
+    add_world_entity(&m_ground_map);
     add_world_entity(&m_hero);
+    add_world_entity(&m_mask_map);
 
     const gf::Time audio_time = game->audio_manager()->time();
     m_red_mask_sound->set_start_time(audio_time + gf::seconds(0.10f));
@@ -55,8 +59,7 @@ namespace glt {
     m_green_mask_sound->start();
     m_blue_mask_sound->start();
 
-    // TODO: read it from the TMX level
-    change_mask(MaskColor::Red);
+    change_mask(game->world_state()->current_mask_color());
   }
 
   gf::ActionGroupSettings WorldBaseScene::compute_settings()
@@ -117,6 +120,8 @@ namespace glt {
   {
     using namespace gf::literals;
 
+    const gf::Vec2F hero_location = m_game->world_state()->hero.world_location;
+
     const HeroState& hero = m_game->world_state()->hero;
     if (hero.direction == gf::Direction::Left) {
       if (hero.running) {
@@ -146,7 +151,8 @@ namespace glt {
       m_hero.select("pause_left"_id);
     }
 
-    m_hero.set_location(m_game->world_state()->hero.world_location);
+    m_hero.set_location(hero_location);
+    set_world_center(hero_location);
 
     update_entities(time);
   }

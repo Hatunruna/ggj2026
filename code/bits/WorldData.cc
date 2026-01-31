@@ -3,11 +3,17 @@
 
 #include "WorldData.h"
 
+#include <cassert>
+#include "MapData.h"
+
 namespace glt {
 
-  WorldData::WorldData()
+  void WorldData::load_map(const gf::TiledMapResource& resource, gf::ResourceManager* resource_manager)
   {
+    const gf::TiledMap* tiled = resource_manager->get<gf::TiledMap>(resource.filename);
+    assert(tiled != nullptr);
 
+    maps.push_back(create_map(tiled));
   }
 
 }

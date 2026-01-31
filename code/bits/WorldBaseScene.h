@@ -10,6 +10,8 @@
 #include <gf2/graphics/AnimationGroupEntity.h>
 #include <gf2/graphics/Scene.h>
 
+#include "MapGroundEntity.h"
+#include "MapMaskEntity.h"
 #include "MaskColor.h"
 #include "WorldResources.h"
 
@@ -32,7 +34,9 @@ namespace glt {
     Game* m_game = nullptr;
     gf::ActionGroup m_action_group;
 
+    MapGroundEntity m_ground_map;
     gf::AnimationGroupEntity m_hero;
+    MapMaskEntity m_mask_map;
 
     gf::Sound* m_red_mask_sound = nullptr;
     gf::Sound* m_green_mask_sound = nullptr;

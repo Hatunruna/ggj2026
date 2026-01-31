@@ -3,6 +3,8 @@
 #ifndef GLT_MAP_MASK_ENTITY_H
 #define GLT_MAP_MASK_ENTITY_H
 
+#include <vector>
+
 #include <gf2/core/TiledMapResource.h>
 #include <gf2/graphics/Entity.h>
 #include <gf2/graphics/TiledMapGraphics.h>
@@ -19,8 +21,9 @@ namespace glt {
     void render(gf::RenderRecorder& recorder) override;
 
   private:
+    Game* m_game = nullptr;
     gf::TiledMapGraphics m_graphics;
-    std::map<std::string, gf::RenderGeometry> m_masks;
+    std::vector<gf::RenderGeometry> m_masks;
   };
 
 }

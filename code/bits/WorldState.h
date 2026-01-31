@@ -7,6 +7,7 @@
 #include <gf2/core/Time.h>
 #include <gf2/core/Vec2.h>
 
+#include "MapState.h"
 #include "MaskColor.h"
 
 namespace glt {
@@ -28,7 +29,9 @@ namespace glt {
     void bind(const WorldData& data);
 
     void process_hero_move(gf::Direction direction);
+    MaskColor current_mask_color() const;
 
+    MapState map;
     HeroState hero;
   };
 

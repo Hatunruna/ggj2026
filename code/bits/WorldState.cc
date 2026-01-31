@@ -6,12 +6,13 @@
 #include <gf2/core/Log.h>
 
 #include "Constants.h"
+#include "WorldData.h"
 
 namespace glt {
 
   void WorldState::bind(const WorldData& data)
   {
-
+    map.initialize_with(data.maps.front());
   }
 
   void WorldState::process_hero_move(gf::Direction direction)
@@ -36,6 +37,11 @@ namespace glt {
 
     hero.tile_target = next_location;
     hero.move_cooldown = gf::seconds(0);
+  }
+
+  MaskColor WorldState::current_mask_color() const
+  {
+    return map.ref->masks[map.current_mask].color;
   }
 
 }
