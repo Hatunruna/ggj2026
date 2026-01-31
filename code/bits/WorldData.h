@@ -11,8 +11,7 @@
 namespace glt {
 
   struct WorldData {
-
-    std::vector<MapData> maps;
+    MapData map;
 
     void load_map(const gf::TiledMapResource& resource, gf::ResourceManager* resource_manager);
   };

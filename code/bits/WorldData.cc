@@ -12,8 +12,7 @@ namespace glt {
   {
     const gf::TiledMap* tiled = resource_manager->get<gf::TiledMap>(resource.filename);
     assert(tiled != nullptr);
-
-    maps.push_back(create_map(tiled));
+    map = create_map(tiled);
   }
 
 }

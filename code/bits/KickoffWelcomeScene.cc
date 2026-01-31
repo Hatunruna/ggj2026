@@ -19,6 +19,7 @@ namespace glt {
   , m_action_group(compute_settings())
   , m_atlas({ 1024, 1024 }, game->render_manager())
   , m_main_title_text(&m_atlas, resources.main_title_text, game->render_manager(), game->resource_manager())
+  , m_main_subtitle_text(&m_atlas, resources.main_subtitle_text, game->render_manager(), game->resource_manager())
   {
     set_world_size(KickoffWelcomeSceneSize);
     set_world_center(KickoffWelcomeSceneSize / 2.0f);
@@ -26,6 +27,10 @@ namespace glt {
     m_main_title_text.set_location(KickoffWelcomeSceneSize / 2.0f);
     m_main_title_text.set_origin({ 0.5f, 0.5f });
     add_world_entity(&m_main_title_text);
+
+    m_main_subtitle_text.set_location(KickoffWelcomeSceneSize * gf::vec(0.5f, 0.8f));
+    m_main_subtitle_text.set_origin({ 0.5f, 0.5f });
+    add_world_entity(&m_main_subtitle_text);
   }
 
   gf::ActionGroupSettings KickoffWelcomeScene::compute_settings()

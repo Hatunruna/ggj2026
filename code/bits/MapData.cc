@@ -68,8 +68,6 @@ namespace glt {
 
     assert(tiled->object_layers.size() == 1);
 
-
-
     auto to_position = [tile_size](gf::Vec2F location) {
       const gf::Vec2I position = location / tile_size;
       return position;

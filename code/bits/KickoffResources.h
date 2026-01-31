@@ -18,7 +18,13 @@ namespace glt {
     // resources
 
     gf::TextResource main_title_text;
+    gf::TextResource main_subtitle_text;
     gf::TextResource loading_text;
+
+    gf::TextResource arrow_text;
+    gf::TextResource tutorial_text;
+    gf::TextResource level01_text;
+
   };
 
 }

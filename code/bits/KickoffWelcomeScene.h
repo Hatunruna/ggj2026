@@ -30,6 +30,7 @@ namespace glt {
 
     gf::FontAtlas m_atlas;
     gf::TextEntity m_main_title_text;
+    gf::TextEntity m_main_subtitle_text;
   };
 
 }

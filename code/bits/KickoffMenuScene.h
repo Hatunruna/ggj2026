@@ -23,6 +23,7 @@ namespace glt {
 
     void do_process_event(const gf::Event& event) override;
     void do_handle_actions() override;
+    void compute_arrow_position();
 
     Game* m_game;
 
@@ -30,7 +31,11 @@ namespace glt {
 
     gf::FontAtlas m_atlas;
 
-    gf::TextEntity m_main_title_text;
+    std::size_t m_current_map = 0;
+
+    gf::TextEntity m_arrow_text;
+    gf::TextEntity m_tutorial_text;
+    gf::TextEntity m_level01_text;
   };
 
 }

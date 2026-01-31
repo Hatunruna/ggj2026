@@ -37,7 +37,7 @@ namespace glt {
 
   void WorldState::bind(const WorldData& data)
   {
-    map.initialize_with(data.maps.front());
+    map.initialize_with(data.map);
   }
 
   MaskColor WorldState::current_mask_color() const
