@@ -1,5 +1,8 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // Copyright (c) 2025 Julien Bernard
+#ifndef GLT_GAME_H
+#define GLT_GAME_H
+
 #include <filesystem>
 #include <memory>
 
@@ -58,3 +61,5 @@ namespace glt {
   };
 
 }
+
+#endif // GLT_GAME_H
