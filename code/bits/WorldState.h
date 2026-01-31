@@ -3,29 +3,14 @@
 #ifndef GLT_WORLD_STATE_H
 #define GLT_WORLD_STATE_H
 
-#include <gf2/core/Direction.h>
-#include <gf2/core/Time.h>
-#include <gf2/core/Vec2.h>
-
+#include "HeroState.h"
 #include "MapState.h"
 #include "MaskColor.h"
 
 namespace glt {
   struct WorldData;
 
-  struct HeroState {
-    gf::Vec2I tile_location = { 0, 0 };
-    gf::Vec2I tile_target = { 0, 0 };
-    gf::Vec2F world_location = {0.0f, 0.0f};
-    bool running = false;
-    gf::Direction direction = gf::Direction::Center;
-    gf::Time move_cooldown;
-
-    MaskColor mask_color = MaskColor::None;
-  };
-
   struct WorldState {
-
     void bind(const WorldData& data);
 
     void process_hero_move(gf::Direction direction);

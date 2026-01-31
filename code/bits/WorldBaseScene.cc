@@ -24,7 +24,7 @@ namespace glt {
   : m_game(game)
   , m_action_group(compute_settings())
   , m_ground_map(game, resources.tutorial_map)
-  , m_hero(resources.hero_animations, game->render_manager(), game->resource_manager())
+  , m_hero(game, resources)
   , m_mask_map(game, resources.tutorial_map)
   , m_red_mask_sound(game->resource_manager()->get<gf::Sound>(resources.red_mask_audio.filename))
   , m_green_mask_sound(game->resource_manager()->get<gf::Sound>(resources.green_mask_audio.filename))
@@ -86,16 +86,19 @@ namespace glt {
   {
     using namespace gf::literals;
 
+    WorldState* state = m_game->world_state();
+    HeroState* hero = &state->hero;
+
     if (m_action_group.active("up"_id)) {
-      m_game->world_state()->process_hero_move(gf::Direction::Up);
+      hero->expected_direction = gf::Direction::Up;
     } else if (m_action_group.active("down"_id)) {
-      m_game->world_state()->process_hero_move(gf::Direction::Down);
+      hero->expected_direction = gf::Direction::Down;
     } else if (m_action_group.active("left"_id)) {
-      m_game->world_state()->process_hero_move(gf::Direction::Left);
+      hero->expected_direction = gf::Direction::Left;
     } else if (m_action_group.active("right"_id)) {
-      m_game->world_state()->process_hero_move(gf::Direction::Right);
+      hero->expected_direction = gf::Direction::Right;
     } else {
-      m_game->world_state()->process_hero_move(gf::Direction::Center);
+      hero->expected_direction = gf::Direction::Center;
     }
 
     if (m_action_group.active("debug_switch_mask"_id)) {
@@ -118,40 +121,7 @@ namespace glt {
 
   void WorldBaseScene::do_update([[maybe_unused]] gf::Time time)
   {
-    using namespace gf::literals;
-
     const gf::Vec2F hero_location = m_game->world_state()->hero.world_location;
-
-    const HeroState& hero = m_game->world_state()->hero;
-    if (hero.direction == gf::Direction::Left) {
-      if (hero.running) {
-        m_hero.select("run_left"_id);
-      } else {
-        m_hero.select("pause_left"_id);
-      }
-    } else if (hero.direction == gf::Direction::Right) {
-      if (hero.running) {
-        m_hero.select("run_right"_id);
-      } else {
-        m_hero.select("pause_right"_id);
-      }
-    } else if (hero.direction == gf::Direction::Up) {
-      if (hero.running) {
-        m_hero.select("run_up"_id);
-      } else {
-        m_hero.select("pause_up"_id);
-      }
-    } else if (hero.direction == gf::Direction::Down) {
-      if (hero.running) {
-        m_hero.select("run_down"_id);
-      } else {
-        m_hero.select("pause_down"_id);
-      }
-    } else {
-      m_hero.select("pause_left"_id);
-    }
-
-    m_hero.set_location(hero_location);
     set_world_center(hero_location);
 
     update_entities(time);

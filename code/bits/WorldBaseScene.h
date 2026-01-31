@@ -7,9 +7,9 @@
 
 #include <gf2/audio/Sound.h>
 
-#include <gf2/graphics/AnimationGroupEntity.h>
 #include <gf2/graphics/Scene.h>
 
+#include "HeroEntity.h"
 #include "MapGroundEntity.h"
 #include "MapMaskEntity.h"
 #include "MaskColor.h"
@@ -35,7 +35,7 @@ namespace glt {
     gf::ActionGroup m_action_group;
 
     MapGroundEntity m_ground_map;
-    gf::AnimationGroupEntity m_hero;
+    HeroEntity m_hero;
     MapMaskEntity m_mask_map;
 
     gf::Sound* m_red_mask_sound = nullptr;

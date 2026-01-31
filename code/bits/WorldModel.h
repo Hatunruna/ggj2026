@@ -16,7 +16,7 @@ namespace glt {
     void update(gf::Time time) override;
 
   private:
-    void hero_move(gf::Time time);
+    void update_hero(gf::Time time);
   };
 
 }
