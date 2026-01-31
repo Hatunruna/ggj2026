@@ -24,6 +24,7 @@ namespace glt {
   : m_game(game)
   , m_action_group(compute_settings())
   , m_ground_map(game, resources.tutorial_map)
+  , m_mask(game, resources)
   , m_hero(game, resources)
   , m_mask_map(game, resources.tutorial_map)
   , m_sounds(game, resources)
@@ -36,6 +37,7 @@ namespace glt {
     add_model(game->world_model());
 
     add_world_entity(&m_ground_map);
+    add_world_entity(&m_mask);
     add_world_entity(&m_hero);
     add_world_entity(&m_mask_map);
     add_world_entity(&m_sounds);

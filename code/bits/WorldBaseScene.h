@@ -12,7 +12,7 @@
 #include "HeroEntity.h"
 #include "MapGroundEntity.h"
 #include "MapMaskEntity.h"
-#include "MaskColor.h"
+#include "MaskEntity.h"
 #include "SoundEntity.h"
 #include "WorldResources.h"
 
@@ -34,6 +34,7 @@ namespace glt {
     gf::ActionGroup m_action_group;
 
     MapGroundEntity m_ground_map;
+    MaskEntity m_mask;
     HeroEntity m_hero;
     MapMaskEntity m_mask_map;
 
