@@ -1,0 +1,125 @@
+{
+	"settings": {
+		"locked": false,
+		"max_atom_count": 4,
+		"max_wang2_count": 4,
+		"max_wang3_count": 4,
+		"tile": {
+			"size": 128,
+			"spacing": 1
+		}
+	},
+	"atoms": [
+		{
+			"id": "Red",
+			"color": [
+				0.716707,
+				0.16312459,
+				0.16312459,
+				1.0
+			],
+			"pigment": {
+				"style": "randomize",
+				"ratio": 0.5,
+				"deviation": 0.1,
+				"size": 5
+			}
+		},
+		{
+			"id": "Green",
+			"color": [
+				0.2783921,
+				0.8523002,
+				0.26415116,
+				1.0
+			],
+			"pigment": {
+				"style": "randomize",
+				"ratio": 0.5,
+				"deviation": 0.1,
+				"size": 5
+			}
+		},
+		{
+			"id": "Blue",
+			"color": [
+				0.015143453,
+				0.47875988,
+				0.8934625,
+				1.0
+			],
+			"pigment": {
+				"style": "randomize",
+				"ratio": 0.5,
+				"deviation": 0.1,
+				"size": 5
+			}
+		}
+	],
+	"wang2": [
+		{
+			"borders": [
+				{
+					"id": "Red",
+					"effect": "outline",
+					"distance": 36,
+					"factor": 0.2
+				},
+				{
+					"id": "Void",
+					"effect": "none"
+				}
+			],
+			"offset": 0,
+			"displacement": {
+				"iterations": 4,
+				"initialFactor": 0.2,
+				"reductionFactor": 0.5
+			},
+			"limit": false
+		},
+		{
+			"borders": [
+				{
+					"id": "Green",
+					"effect": "outline",
+					"distance": 36,
+					"factor": 0.2
+				},
+				{
+					"id": "Void",
+					"effect": "none"
+				}
+			],
+			"offset": 0,
+			"displacement": {
+				"iterations": 4,
+				"initialFactor": 0.2,
+				"reductionFactor": 0.5
+			},
+			"limit": false
+		},
+		{
+			"borders": [
+				{
+					"id": "Blue",
+					"effect": "outline",
+					"distance": 36,
+					"factor": 0.2
+				},
+				{
+					"id": "Void",
+					"effect": "none"
+				}
+			],
+			"offset": 0,
+			"displacement": {
+				"iterations": 2,
+				"initialFactor": 0.2,
+				"reductionFactor": 0.5
+			},
+			"limit": false
+		}
+	],
+	"wang3": []
+}
