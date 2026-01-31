@@ -85,9 +85,22 @@ namespace glt {
       } else {
         m_hero.select("pause_right"_id);
       }
+    } else if (hero.direction == gf::Direction::Up) {
+      if (hero.running) {
+        m_hero.select("run_up"_id);
+      } else {
+        m_hero.select("pause_up"_id);
+      }
+    } else if (hero.direction == gf::Direction::Down) {
+      if (hero.running) {
+        m_hero.select("run_down"_id);
+      } else {
+        m_hero.select("pause_down"_id);
+      }
     } else {
       m_hero.select("pause_left"_id);
     }
+
     m_hero.set_location(m_game->world_state()->hero.world_location);
 
     update_entities(time);
