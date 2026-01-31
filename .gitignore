@@ -2,3 +2,4 @@ build/
 .xmake/
 .cache/
 .vscode/
+.DS_Store
