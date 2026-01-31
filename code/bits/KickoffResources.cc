@@ -10,17 +10,23 @@
 
 namespace glt {
 
+  namespace {
+
+    constexpr gf::Color GelatineYellow = 0xF5E74E;
+
+  }
+
   KickoffResources::KickoffResources()
   {
     main_title_text.font = "thickhea.ttf";
     main_title_text.data.content = "Gelatine";
-    main_title_text.data.color = gf::Yellow;
-    main_title_text.data.character_size = 128.0f;
+    main_title_text.data.color = GelatineYellow;
+    main_title_text.data.character_size = 256.0f;
 
-    loading_text.font = "Oxanium-Regular.ttf";
+    loading_text.font = "thickhea.ttf";
     loading_text.data.content = "Loading...";
-    loading_text.data.color = gf::Yellow;
-    loading_text.data.character_size = 64.0f;
+    loading_text.data.color = GelatineYellow;
+    loading_text.data.character_size = 96.0f;
   }
 
   gf::ResourceBundle KickoffResources::bundle(Game* game) const
