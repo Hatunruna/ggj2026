@@ -12,6 +12,8 @@
 
 namespace glt {
 
+  constexpr gf::Color ShadeColor = gf::gray(0.5f) * gf::opaque(0.5f);
+
   WorldResources::WorldResources()
   {
     using namespace gf::literals;
@@ -121,6 +123,22 @@ namespace glt {
       hero_animations.data.animations.emplace("change_mask_blue_to_blue"_id, animation);
     }
 
+    red_mask_sprite.texture = "sprites/red_mask.png";
+
+    red_mask_sprite_shaded.texture = "sprites/red_mask.png";
+    red_mask_sprite_shaded.data.color = ShadeColor;
+
+    green_mask_sprite.texture = "sprites/green_mask.png";
+
+    green_mask_sprite_shaded.texture = "sprites/green_mask.png";
+    green_mask_sprite_shaded.data.color = ShadeColor;
+
+    blue_mask_sprite.texture = "sprites/blue_mask.png";
+
+    blue_mask_sprite_shaded.texture = "sprites/blue_mask.png";
+    blue_mask_sprite_shaded.data.color = ShadeColor;
+
+
     red_mask_audio.filename = "audio/red-mask.ogg";
     red_mask_audio.data.loop = true;
 
@@ -138,6 +156,13 @@ namespace glt {
     builder.add_in_bundle(tutorial_map);
 
     builder.add_in_bundle(hero_animations);
+
+    builder.add_in_bundle(red_mask_sprite);
+    builder.add_in_bundle(red_mask_sprite_shaded);
+    builder.add_in_bundle(green_mask_sprite);
+    builder.add_in_bundle(green_mask_sprite_shaded);
+    builder.add_in_bundle(blue_mask_sprite);
+    builder.add_in_bundle(blue_mask_sprite_shaded);
 
     builder.add_in_bundle(red_mask_audio);
     builder.add_in_bundle(green_mask_audio);

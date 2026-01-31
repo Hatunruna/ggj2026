@@ -5,6 +5,7 @@
 
 #include <gf2/core/AudioSourceData.h>
 #include <gf2/core/ResourceBundle.h>
+#include <gf2/core/SpriteData.h>
 #include <gf2/core/TiledMapResource.h>
 
 #include <gf2/graphics/AnimationGroup.h>
@@ -23,6 +24,13 @@ namespace glt {
     gf::TiledMapResource tutorial_map;
 
     gf::AnimationGroupResource hero_animations;
+
+    gf::SpriteResource red_mask_sprite;
+    gf::SpriteResource red_mask_sprite_shaded;
+    gf::SpriteResource green_mask_sprite;
+    gf::SpriteResource green_mask_sprite_shaded;
+    gf::SpriteResource blue_mask_sprite;
+    gf::SpriteResource blue_mask_sprite_shaded;
 
     gf::AudioSourceResource red_mask_audio;
     gf::AudioSourceResource green_mask_audio;
