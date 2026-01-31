@@ -3,6 +3,8 @@
 
 #include "WorldModel.h"
 
+#include <gf2/core/Range.h>
+
 #include "Constants.h"
 
 namespace glt {
@@ -42,6 +44,21 @@ namespace glt {
         state.hero.running = true;
       }
     }
+
+    // check masks
+
+    for (auto [ index, mask_state ] : gf::enumerate(state.map.masks)) {
+      if (mask_state == MaskState::Inventory) {
+        continue;
+      }
+
+      const gf::Vec2I position = state.map.ref->masks[index].position.value();
+
+      if (position == state.hero.tile_location) {
+        mask_state = MaskState::Inventory;
+      }
+    }
+
   }
 
 }
