@@ -19,12 +19,24 @@ namespace glt {
     tutorial_map.filename = "map/tutorial.tmx";
 
     hero_animations.textures = {
+      // Run animations
       "animations/hero/run-left-right.png",
       "animations/hero/run-up.png",
       "animations/hero/run-down.png",
+
+      // Pause animations
       "animations/hero/pause-left-right.png",
       "animations/hero/pause-up.png",
       "animations/hero/pause-down.png",
+
+      // Remove mask animations
+      "animations/hero/remove-mask-red-0.png",
+      "animations/hero/remove-mask-red-1.png",
+      // TODO: add other color
+
+      // Wear mask animation
+      "animations/hero/wear-mask-red.png",
+      // TODO: add other color
     };
 
     {
@@ -89,6 +101,24 @@ namespace glt {
       animation.add_tileset(5, {8, 8}, gf::seconds(1.0f / 25.0f), 29);
 
       hero_animations.data.animations.emplace("pause_down"_id, animation);
+    }
+
+    {
+      gf::AnimationData animation;
+      animation.add_tileset(6, {8, 8}, gf::seconds(1.0f / 25.0f), 64);
+      animation.add_tileset(7, {8, 8}, gf::seconds(1.0f / 25.0f), 12);
+      animation.add_tileset(8, {8, 8}, gf::seconds(1.0f / 25.0f), 45);
+
+      hero_animations.data.animations.emplace("change_mask_red_to_red"_id, animation);
+      // FIXME: Generate the right animations when the texture will be available
+      hero_animations.data.animations.emplace("change_mask_red_to_green"_id, animation);
+      hero_animations.data.animations.emplace("change_mask_red_to_blue"_id, animation);
+      hero_animations.data.animations.emplace("change_mask_green_to_red"_id, animation);
+      hero_animations.data.animations.emplace("change_mask_green_to_green"_id, animation);
+      hero_animations.data.animations.emplace("change_mask_green_to_blue"_id, animation);
+      hero_animations.data.animations.emplace("change_mask_blue_to_red"_id, animation);
+      hero_animations.data.animations.emplace("change_mask_blue_to_green"_id, animation);
+      hero_animations.data.animations.emplace("change_mask_blue_to_blue"_id, animation);
     }
 
     red_mask_audio.filename = "audio/red-mask.ogg";
