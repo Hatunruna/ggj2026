@@ -5,6 +5,8 @@
 
 #include <gf2/core/ActionGroup.h>
 
+#include <gf2/audio/Sound.h>
+
 #include <gf2/graphics/AnimationGroupEntity.h>
 #include <gf2/graphics/Scene.h>
 
@@ -28,6 +30,10 @@ namespace glt {
     gf::ActionGroup m_action_group;
 
     gf::AnimationGroupEntity m_hero;
+
+    gf::Sound* m_red_mask_sound = nullptr;
+    gf::Sound* m_green_mask_sound = nullptr;
+    gf::Sound* m_blue_mask_sound = nullptr;
   };
 
 }

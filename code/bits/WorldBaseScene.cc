@@ -8,6 +8,9 @@
 #include <gf2/core/Keycode.h>
 #include <gf2/core/Log.h>
 #include <gf2/core/Scancode.h>
+#include <gf2/core/Time.h>
+
+#include <gf2/audio/AudioManager.h>
 
 #include "Constants.h"
 #include "Game.h"
@@ -19,6 +22,9 @@ namespace glt {
   : m_game(game)
   , m_action_group(compute_settings())
   , m_hero(resources.hero_animations, game->render_manager(), game->resource_manager())
+  , m_red_mask_sound(game->resource_manager()->get<gf::Sound>(resources.red_mask_audio.filename))
+  , m_green_mask_sound(game->resource_manager()->get<gf::Sound>(resources.green_mask_audio.filename))
+  , m_blue_mask_sound(game->resource_manager()->get<gf::Sound>(resources.blue_mask_audio.filename))
   {
     set_clear_color(gf::White);
 
@@ -29,6 +35,23 @@ namespace glt {
 
     m_hero.set_location(TileSize * 5);
     add_world_entity(&m_hero);
+
+    const gf::Time audio_time = game->audio_manager()->time();
+    m_red_mask_sound->set_start_time(audio_time + gf::seconds(0.10f));
+    m_green_mask_sound->set_start_time(audio_time + gf::seconds(0.10f));
+    m_blue_mask_sound->set_start_time(audio_time + gf::seconds(0.10f));
+
+    m_red_mask_sound->set_looping(resources.red_mask_audio.data.loop);
+    m_green_mask_sound->set_looping(resources.green_mask_audio.data.loop);
+    m_blue_mask_sound->set_looping(resources.blue_mask_audio.data.loop);
+
+    m_red_mask_sound->set_volume(1.0f);
+    m_green_mask_sound->set_volume(0.0f);
+    m_blue_mask_sound->set_volume(0.0f);
+
+    m_red_mask_sound->start();
+    m_green_mask_sound->start();
+    m_blue_mask_sound->start();
   }
 
   gf::ActionGroupSettings WorldBaseScene::compute_settings()

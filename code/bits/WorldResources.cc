@@ -92,6 +92,15 @@ namespace glt {
 
       hero_animations.data.animations.emplace("pause_down"_id, animation);
     }
+
+    red_mask_audio.filename = "audio/red-mask.ogg";
+    red_mask_audio.data.loop = true;
+
+    green_mask_audio.filename = "audio/green-mask.ogg";
+    green_mask_audio.data.loop = true;
+
+    blue_mask_audio.filename = "audio/blue-mask.ogg";
+    blue_mask_audio.data.loop = true;
   }
 
   gf::ResourceBundle WorldResources::bundle(Game* game) const
@@ -101,6 +110,10 @@ namespace glt {
     builder.add_in_bundle(tutorial_map);
 
     builder.add_in_bundle(hero_animations);
+
+    builder.add_in_bundle(red_mask_audio);
+    builder.add_in_bundle(green_mask_audio);
+    builder.add_in_bundle(blue_mask_audio);
 
     return builder.make_bundle();
   }
