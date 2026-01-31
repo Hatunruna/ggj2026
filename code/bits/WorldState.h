@@ -15,6 +15,13 @@ namespace glt {
 
     MaskColor current_mask_color() const;
 
+    bool reachable(gf::Vec2I position) const;
+
+    std::size_t mask_count() const;
+    bool is_mask_collected(std::size_t index) const;
+    bool is_mask_available(std::size_t index) const;
+    bool is_mask_current(std::size_t index) const;
+
     MapState map;
     HeroState hero;
   };

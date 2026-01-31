@@ -35,7 +35,7 @@ namespace glt {
       const gf::Vec2I displacement = gf::displacement(state.hero.expected_direction);
       const gf::Vec2I target = state.hero.tile_location + displacement;
 
-      if (state.map.reachable(target)) {
+      if (state.reachable(target)) {
         state.hero.direction = state.hero.expected_direction;
         state.hero.tile_target = target;;
         state.hero.move_cooldown = gf::Time();

@@ -21,7 +21,6 @@ namespace glt {
     std::size_t current_mask = 0;
 
     void initialize_with(const MapData& data);
-    bool reachable(gf::Vec2I position) const;
   };
 
 }
