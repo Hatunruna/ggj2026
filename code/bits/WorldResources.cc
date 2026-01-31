@@ -16,13 +16,16 @@ namespace glt {
   {
     hero_shape.buffer = gf::ShapeBuffer::make_circle(gf::CircF::from_radius(TileSize.w));
     hero_shape.buffer.color = gf::Green;
+
+    tutorial_map.filename = "map/tutorial.tmx";
   }
 
   gf::ResourceBundle WorldResources::bundle(Game* game) const
   {
     gf::BundleBuilder builder(game);
 
-    // builder.add_in_bundle(hero_shape);
+    builder.add_in_bundle(hero_shape);
+    builder.add_in_bundle(tutorial_map);
 
     return builder.make_bundle();
   }

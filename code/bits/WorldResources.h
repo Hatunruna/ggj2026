@@ -4,6 +4,7 @@
 #define GLT_WORLD_RESOURCES_H
 
 #include <gf2/core/ResourceBundle.h>
+#include <gf2/core/TiledMapResource.h>
 
 #include <gf2/graphics/Shape.h>
 #include <gf2/graphics/Text.h>
@@ -18,6 +19,8 @@ namespace glt {
 
     // resources
     gf::ShapeResource hero_shape;
+
+    gf::TiledMapResource tutorial_map;
   };
 
 }
