@@ -13,6 +13,7 @@
 #include "MapGroundEntity.h"
 #include "MapMaskEntity.h"
 #include "MaskColor.h"
+#include "SoundEntity.h"
 #include "WorldResources.h"
 
 namespace glt {
@@ -29,8 +30,6 @@ namespace glt {
   private:
     static gf::ActionGroupSettings compute_settings();
 
-    void change_mask(MaskColor new_mask);
-
     Game* m_game = nullptr;
     gf::ActionGroup m_action_group;
 
@@ -38,9 +37,7 @@ namespace glt {
     HeroEntity m_hero;
     MapMaskEntity m_mask_map;
 
-    gf::Sound* m_red_mask_sound = nullptr;
-    gf::Sound* m_green_mask_sound = nullptr;
-    gf::Sound* m_blue_mask_sound = nullptr;
+    SoundEntity m_sounds;
   };
 
 }

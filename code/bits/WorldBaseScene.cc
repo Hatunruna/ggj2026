@@ -26,9 +26,7 @@ namespace glt {
   , m_ground_map(game, resources.tutorial_map)
   , m_hero(game, resources)
   , m_mask_map(game, resources.tutorial_map)
-  , m_red_mask_sound(game->resource_manager()->get<gf::Sound>(resources.red_mask_audio.filename))
-  , m_green_mask_sound(game->resource_manager()->get<gf::Sound>(resources.green_mask_audio.filename))
-  , m_blue_mask_sound(game->resource_manager()->get<gf::Sound>(resources.blue_mask_audio.filename))
+  , m_sounds(game, resources)
   {
     set_clear_color(gf::White);
 
@@ -41,25 +39,7 @@ namespace glt {
     add_world_entity(&m_ground_map);
     add_world_entity(&m_hero);
     add_world_entity(&m_mask_map);
-
-    const gf::Time audio_time = game->audio_manager()->time();
-    m_red_mask_sound->set_start_time(audio_time + gf::seconds(0.10f));
-    m_green_mask_sound->set_start_time(audio_time + gf::seconds(0.10f));
-    m_blue_mask_sound->set_start_time(audio_time + gf::seconds(0.10f));
-
-    m_red_mask_sound->set_looping(resources.red_mask_audio.data.loop);
-    m_green_mask_sound->set_looping(resources.green_mask_audio.data.loop);
-    m_blue_mask_sound->set_looping(resources.blue_mask_audio.data.loop);
-
-    m_red_mask_sound->set_volume(0.0f);
-    m_green_mask_sound->set_volume(0.0f);
-    m_blue_mask_sound->set_volume(0.0f);
-
-    m_red_mask_sound->start();
-    m_green_mask_sound->start();
-    m_blue_mask_sound->start();
-
-    change_mask(game->world_state()->current_mask_color());
+    add_world_entity(&m_sounds);
   }
 
   gf::ActionGroupSettings WorldBaseScene::compute_settings()
@@ -71,8 +51,6 @@ namespace glt {
     settings.actions.emplace("down"_id, gf::continuous_action().add_keycode_control(gf::Keycode::Down).add_scancode_control(gf::Scancode::S));
     settings.actions.emplace("left"_id, gf::continuous_action().add_keycode_control(gf::Keycode::Left).add_scancode_control(gf::Scancode::A));
     settings.actions.emplace("right"_id, gf::continuous_action().add_keycode_control(gf::Keycode::Right).add_scancode_control(gf::Scancode::D));
-
-    settings.actions.emplace("debug_switch_mask"_id, gf::instantaneous_action().add_scancode_control(gf::Scancode::Tab));
 
     return settings;
   }
@@ -101,21 +79,6 @@ namespace glt {
       hero->expected_direction = gf::Direction::Center;
     }
 
-    if (m_action_group.active("debug_switch_mask"_id)) {
-      switch (m_game->world_state()->hero.mask_color) {
-        case MaskColor::Red:
-          change_mask(MaskColor::Blue);
-          break;
-        case MaskColor::Blue:
-          change_mask(MaskColor::Green);
-          break;
-        case MaskColor::None:
-        case MaskColor::Green:
-          change_mask(MaskColor::Red);
-          break;
-      }
-    }
-
     m_action_group.reset();
   }
 
@@ -125,46 +88,6 @@ namespace glt {
     set_world_center(hero_location);
 
     update_entities(time);
-  }
-
-  void WorldBaseScene::change_mask(MaskColor new_mask)
-  {
-    switch (m_game->world_state()->hero.mask_color) {
-    case MaskColor::Red:
-      m_red_mask_sound->set_fade(1.0f, 0.0f, MaskAudioFade);
-      break;
-    case MaskColor::Blue:
-      m_blue_mask_sound->set_fade(1.0f, 0.0f, MaskAudioFade);
-      break;
-    case MaskColor::Green:
-      m_green_mask_sound->set_fade(1.0f, 0.0f, MaskAudioFade);
-      break;
-
-    default:
-      // nothing to do
-      break;
-    }
-
-    switch (new_mask) {
-    case MaskColor::Red:
-      m_red_mask_sound->set_volume(1.0f);
-      m_red_mask_sound->set_fade(0.0f, 1.0f, MaskAudioFade);
-      break;
-    case MaskColor::Blue:
-      m_blue_mask_sound->set_volume(1.0f);
-      m_blue_mask_sound->set_fade(0.0f, 1.0f, MaskAudioFade);
-      break;
-    case MaskColor::Green:
-      m_green_mask_sound->set_volume(1.0f);
-      m_green_mask_sound->set_fade(0.0f, 1.0f, MaskAudioFade);
-      break;
-
-    default:
-      // nothing to do
-      break;
-    }
-
-    m_game->world_state()->hero.mask_color = new_mask;
   }
 
 }
