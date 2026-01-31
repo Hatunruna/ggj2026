@@ -20,10 +20,8 @@ namespace glt {
 
     hero_animations.textures = {
       "animations/hero/run-left-right.png",
-      "animations/hero/run-left-right.png",
       "animations/hero/run-up.png",
       "animations/hero/run-down.png",
-      "animations/hero/pause-left-right.png",
       "animations/hero/pause-left-right.png",
       "animations/hero/pause-up.png",
       "animations/hero/pause-down.png",
@@ -40,7 +38,7 @@ namespace glt {
     {
       gf::AnimationData animation;
       animation.properties.set(gf::AnimationProperties::Loop);
-      animation.add_tileset(1, {8, 8}, gf::seconds(1.0f / 25.0f), gf::AnimationFrameFlip::Horizontally, 19);
+      animation.add_tileset(0, {8, 8}, gf::seconds(1.0f / 25.0f), gf::AnimationFrameFlip::Horizontally, 19);
 
       hero_animations.data.animations.emplace("run_right"_id, animation);
     }
@@ -48,7 +46,7 @@ namespace glt {
     {
       gf::AnimationData animation;
       animation.properties.set(gf::AnimationProperties::Loop);
-      animation.add_tileset(2, {8, 8}, gf::seconds(1.0f / 25.0f), 19);
+      animation.add_tileset(1, {8, 8}, gf::seconds(1.0f / 25.0f), 19);
 
       hero_animations.data.animations.emplace("run_up"_id, animation);
     }
@@ -56,7 +54,7 @@ namespace glt {
     {
       gf::AnimationData animation;
       animation.properties.set(gf::AnimationProperties::Loop);
-      animation.add_tileset(3, {8, 8}, gf::seconds(1.0f / 25.0f), 19);
+      animation.add_tileset(2, {8, 8}, gf::seconds(1.0f / 25.0f), 19);
 
       hero_animations.data.animations.emplace("run_down"_id, animation);
     }
@@ -64,7 +62,7 @@ namespace glt {
     {
       gf::AnimationData animation;
       animation.properties.set(gf::AnimationProperties::Loop);
-      animation.add_tileset(4, {1, 1}, gf::seconds(1.0f / 25.0f), 1);
+      animation.add_tileset(3, {8, 8}, gf::seconds(1.0f / 25.0f), 28);
 
       hero_animations.data.animations.emplace("pause_left"_id, animation);
     }
@@ -72,7 +70,7 @@ namespace glt {
     {
       gf::AnimationData animation;
       animation.properties.set(gf::AnimationProperties::Loop);
-      animation.add_tileset(5, {1, 1}, gf::seconds(1.0f / 25.0f), gf::AnimationFrameFlip::Horizontally, 1);
+      animation.add_tileset(3, {8, 8}, gf::seconds(1.0f / 25.0f), gf::AnimationFrameFlip::Horizontally, 28);
 
       hero_animations.data.animations.emplace("pause_right"_id, animation);
     }
@@ -80,7 +78,7 @@ namespace glt {
     {
       gf::AnimationData animation;
       animation.properties.set(gf::AnimationProperties::Loop);
-      animation.add_tileset(6, {1, 1}, gf::seconds(1.0f / 25.0f), 1);
+      animation.add_tileset(4, {8, 8}, gf::seconds(1.0f / 25.0f), 29);
 
       hero_animations.data.animations.emplace("pause_up"_id, animation);
     }
@@ -88,7 +86,7 @@ namespace glt {
     {
       gf::AnimationData animation;
       animation.properties.set(gf::AnimationProperties::Loop);
-      animation.add_tileset(7, {1, 1}, gf::seconds(1.0f / 25.0f), 1);
+      animation.add_tileset(5, {8, 8}, gf::seconds(1.0f / 25.0f), 29);
 
       hero_animations.data.animations.emplace("pause_down"_id, animation);
     }
