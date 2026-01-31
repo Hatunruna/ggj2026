@@ -16,6 +16,12 @@ namespace glt {
 
   void WorldState::process_hero_move(gf::Direction direction)
   {
+    if (direction == gf::Direction::Center) {
+      hero.running = hero.move_cooldown < HeroMoveCooldown;
+      return;
+    }
+    hero.running = true;
+
     if (hero.move_cooldown < HeroMoveCooldown) {
       return;
     }

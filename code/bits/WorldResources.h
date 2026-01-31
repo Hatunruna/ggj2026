@@ -6,6 +6,7 @@
 #include <gf2/core/ResourceBundle.h>
 #include <gf2/core/TiledMapResource.h>
 
+#include <gf2/graphics/AnimationGroup.h>
 #include <gf2/graphics/Shape.h>
 #include <gf2/graphics/Text.h>
 
@@ -18,9 +19,9 @@ namespace glt {
     gf::ResourceBundle bundle(Game* game) const;
 
     // resources
-    gf::ShapeResource hero_shape;
-
     gf::TiledMapResource tutorial_map;
+
+    gf::AnimationGroupResource hero_animations;
   };
 
 }

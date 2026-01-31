@@ -11,13 +11,14 @@
 
 #include "Constants.h"
 #include "Game.h"
+#include "WorldState.h"
 
 namespace glt {
 
   WorldBaseScene::WorldBaseScene(Game* game, const WorldResources& resources)
   : m_game(game)
   , m_action_group(compute_settings())
-  , m_hero(resources.hero_shape, game->render_manager(), game->resource_manager())
+  , m_hero(resources.hero_animations, game->render_manager(), game->resource_manager())
   {
     set_clear_color(gf::White);
 
@@ -60,6 +61,8 @@ namespace glt {
       m_game->world_state()->process_hero_move(gf::Direction::Left);
     } else if (m_action_group.active("right"_id)) {
       m_game->world_state()->process_hero_move(gf::Direction::Right);
+    } else {
+      m_game->world_state()->process_hero_move(gf::Direction::Center);
     }
 
     m_action_group.reset();
@@ -67,9 +70,27 @@ namespace glt {
 
   void WorldBaseScene::do_update([[maybe_unused]] gf::Time time)
   {
-    update_entities(time);
+    using namespace gf::literals;
 
+    const HeroState& hero = m_game->world_state()->hero;
+    if (hero.direction == gf::Direction::Left) {
+      if (hero.running) {
+        m_hero.select("run_left"_id);
+      } else {
+        m_hero.select("pause_left"_id);
+      }
+    } else if (hero.direction == gf::Direction::Right) {
+      if (hero.running) {
+        m_hero.select("run_right"_id);
+      } else {
+        m_hero.select("pause_right"_id);
+      }
+    } else {
+      m_hero.select("pause_left"_id);
+    }
     m_hero.set_location(m_game->world_state()->hero.middle);
+
+    update_entities(time);
   }
 
 }

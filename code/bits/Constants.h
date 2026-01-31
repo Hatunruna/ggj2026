@@ -6,7 +6,7 @@
 
 namespace glt {
   constexpr gf::Vec2F TileSize = {128.0f, 128.0f};
-  constexpr gf::Time HeroMoveCooldown = gf::seconds(0.25f);
+  constexpr gf::Time HeroMoveCooldown = gf::seconds(0.40f);
 
 }
 

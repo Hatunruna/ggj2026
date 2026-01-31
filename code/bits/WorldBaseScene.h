@@ -5,8 +5,8 @@
 
 #include <gf2/core/ActionGroup.h>
 
+#include <gf2/graphics/AnimationGroupEntity.h>
 #include <gf2/graphics/Scene.h>
-#include <gf2/graphics/ShapeEntity.h>
 
 #include "WorldResources.h"
 
@@ -27,7 +27,7 @@ namespace glt {
     Game* m_game = nullptr;
     gf::ActionGroup m_action_group;
 
-    gf::ShapeEntity m_hero;
+    gf::AnimationGroupEntity m_hero;
   };
 
 }
