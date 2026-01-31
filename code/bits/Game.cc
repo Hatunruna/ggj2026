@@ -25,7 +25,7 @@ namespace glt {
 
     m_kickoff_act = std::make_unique<KickoffAct>(this, m_kickoff_resources);
 
-    gf::BasicScene* scenes[] = { &m_kickoff_act->common_scene, &m_kickoff_act->menu_scene };
+    gf::BasicScene* scenes[] = { &m_kickoff_act->common_scene, &m_kickoff_act->welcome_scene };
     push_scenes(scenes);
   }
 

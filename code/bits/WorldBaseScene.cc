@@ -84,7 +84,7 @@ namespace glt {
     }
 
     if (m_action_group.active("back"_id)) {
-      gf::BasicScene* scenes[] = { &m_game->kickoff_act()->common_scene, &m_game->kickoff_act()->menu_scene };
+      gf::BasicScene* scenes[] = { &m_game->kickoff_act()->common_scene, &m_game->kickoff_act()->welcome_scene };
       m_game->replace_all_scenes(scenes);
     }
 

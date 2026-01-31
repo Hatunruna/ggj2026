@@ -7,6 +7,7 @@
 #include "KickoffLoadingScene.h"
 #include "KickoffMenuScene.h"
 #include "KickoffResources.h"
+#include "KickoffWelcomeScene.h"
 
 namespace glt {
   class Game;
@@ -15,6 +16,7 @@ namespace glt {
     KickoffAct(Game* game, const KickoffResources& resources);
 
     CommonBaseScene common_scene;
+    KickoffWelcomeScene welcome_scene;
     KickoffMenuScene menu_scene;
     KickoffLoadingScene loading_scene;
 

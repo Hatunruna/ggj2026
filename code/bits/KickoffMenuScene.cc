@@ -23,9 +23,9 @@ namespace glt {
     set_world_size(KickoffMenuSceneSize);
     set_world_center(KickoffMenuSceneSize / 2.0f);
 
-    m_main_title_text.set_location(KickoffMenuSceneSize / 2.0f);
-    m_main_title_text.set_origin({ 0.5f, 0.5f });
-    add_world_entity(&m_main_title_text);
+    // m_main_title_text.set_location(KickoffMenuSceneSize / 2.0f);
+    // m_main_title_text.set_origin({ 0.5f, 0.5f });
+    // add_world_entity(&m_main_title_text);
   }
 
   gf::ActionGroupSettings KickoffMenuScene::compute_settings()
