@@ -46,7 +46,7 @@ namespace glt {
       return m_world_act.get();
     }
 
-    void load_world();
+    void load_world(const std::filesystem::path& filename);
     bool world_loaded();
     void start_world();
 

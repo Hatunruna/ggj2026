@@ -6,7 +6,8 @@
 namespace glt {
 
   WorldAct::WorldAct(Game* game, const WorldResources& resources)
-  : base_scene(game, resources)
+  : common_scene(game)
+  , base_scene(game, resources)
   {
   }
 

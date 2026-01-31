@@ -33,7 +33,8 @@ namespace glt {
     using namespace gf::literals;
     gf::ActionGroupSettings settings;
 
-    settings.actions.emplace("start"_id, gf::instantaneous_action().add_keycode_control(gf::Keycode::Space));
+    settings.actions.emplace("start_0"_id, gf::instantaneous_action().add_keycode_control(gf::Keycode::Num1));
+    settings.actions.emplace("start_1"_id, gf::instantaneous_action().add_keycode_control(gf::Keycode::Num2));
 
     return settings;
   }
@@ -47,8 +48,13 @@ namespace glt {
   {
     using namespace gf::literals;
 
-    if (m_action_group.active("start"_id)) {
-       m_game->load_world();
+    if (m_action_group.active("start_0"_id)) {
+       m_game->load_world("map/tutorial.tmx");
+       m_game->replace_scene(&m_game->kickoff_act()->loading_scene);
+    }
+
+    if (m_action_group.active("start_1"_id)) {
+       m_game->load_world("map/level01.tmx");
        m_game->replace_scene(&m_game->kickoff_act()->loading_scene);
     }
 

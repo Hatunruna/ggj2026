@@ -17,16 +17,17 @@
 #include "Game.h"
 #include "MaskColor.h"
 #include "WorldState.h"
+#include "gf2/graphics/Scene.h"
 
 namespace glt {
 
   WorldBaseScene::WorldBaseScene(Game* game, const WorldResources& resources)
   : m_game(game)
   , m_action_group(compute_settings())
-  , m_ground_map(game, resources.tutorial_map)
+  , m_ground_map(game, resources.map)
   , m_mask(game, resources)
   , m_hero(game, resources)
-  , m_mask_map(game, resources.tutorial_map)
+  , m_mask_map(game, resources.map)
   , m_sounds(game, resources)
   {
     set_clear_color(gf::White);
@@ -53,6 +54,8 @@ namespace glt {
     settings.actions.emplace("left"_id, gf::continuous_action().add_keycode_control(gf::Keycode::Left).add_scancode_control(gf::Scancode::A));
     settings.actions.emplace("right"_id, gf::continuous_action().add_keycode_control(gf::Keycode::Right).add_scancode_control(gf::Scancode::D));
 
+    settings.actions.emplace("back"_id, gf::instantaneous_action().add_scancode_control(gf::Scancode::Backspace));
+
     return settings;
   }
 
@@ -78,6 +81,11 @@ namespace glt {
       hero->expected_direction = gf::Direction::Right;
     } else {
       hero->expected_direction = gf::Direction::Center;
+    }
+
+    if (m_action_group.active("back"_id)) {
+      gf::BasicScene* scenes[] = { &m_game->kickoff_act()->common_scene, &m_game->kickoff_act()->menu_scene };
+      m_game->replace_all_scenes(scenes);
     }
 
     m_action_group.reset();

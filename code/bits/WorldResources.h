@@ -21,7 +21,7 @@ namespace glt {
     gf::ResourceBundle bundle(Game* game) const;
 
     // resources
-    gf::TiledMapResource tutorial_map;
+    gf::TiledMapResource map;
 
     gf::AnimationGroupResource hero_animations;
 

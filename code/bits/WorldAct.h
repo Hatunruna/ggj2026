@@ -3,6 +3,7 @@
 #ifndef GLT_WORLD_ACT_H
 #define GLT_WORLD_ACT_H
 
+#include "CommonBaseScene.h"
 #include "WorldBaseScene.h"
 #include "WorldResources.h"
 
@@ -12,6 +13,7 @@ namespace glt {
   struct WorldAct {
     WorldAct(Game* game, const WorldResources& resources);
 
+    CommonBaseScene common_scene;
     WorldBaseScene base_scene;
 
   };

@@ -18,8 +18,6 @@ namespace glt {
   {
     using namespace gf::literals;
 
-    tutorial_map.filename = "map/tutorial.tmx";
-
     hero_animations.textures = {
       // Run animations
       "animations/hero/run-left-right.png",
@@ -153,7 +151,7 @@ namespace glt {
   {
     gf::BundleBuilder builder(game);
 
-    builder.add_in_bundle(tutorial_map);
+    builder.add_in_bundle(map);
 
     builder.add_in_bundle(hero_animations);
 

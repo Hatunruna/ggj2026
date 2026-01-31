@@ -25,18 +25,30 @@ namespace glt {
 
     m_kickoff_act = std::make_unique<KickoffAct>(this, m_kickoff_resources);
 
-    push_scene(&m_kickoff_act->menu_scene);
+    gf::BasicScene* scenes[] = { &m_kickoff_act->common_scene, &m_kickoff_act->menu_scene };
+    push_scenes(scenes);
   }
 
-  void Game::load_world()
+  void Game::load_world(const std::filesystem::path& filename)
   {
+    gf::ResourceBundle previous_bundle;
+
+    if (m_world_act) {
+      previous_bundle = m_world_resources.bundle(this);
+      m_world_act.reset();
+      m_world_model = {};
+    }
+
+    m_world_resources.map.filename = filename;
+
     using namespace std::literals;
 
-    m_async.run_async([&]() {
+    m_async.run_async([&,previous_bundle = std::move(previous_bundle)]() mutable {
       gf::ResourceBundle world_bundle = m_world_resources.bundle(this);
       world_bundle.load_from(resource_manager());
+      previous_bundle.unload_from(resource_manager());
 
-      m_world_model.data.load_map(m_world_resources.tutorial_map, resource_manager());
+      m_world_model.data.load_map(m_world_resources.map, resource_manager());
       m_world_model.state.bind(m_world_model.data);
 
       m_world_act = std::make_unique<WorldAct>(this, m_world_resources);
@@ -50,7 +62,8 @@ namespace glt {
 
   void Game::start_world()
   {
-    replace_all_scenes(&m_world_act->base_scene);
+    gf::BasicScene* scenes[] = { &m_world_act->common_scene, &m_world_act->base_scene };
+    replace_all_scenes(scenes);
   }
 
 }
