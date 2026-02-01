@@ -7,6 +7,7 @@ namespace glt {
 
   KickoffAct::KickoffAct(Game* game, const KickoffResources& resources)
   : common_scene(game)
+  , background_scene(game, resources)
   , welcome_scene(game, resources)
   , menu_scene(game, resources)
   , loading_scene(game, resources)

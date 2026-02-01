@@ -14,6 +14,8 @@ namespace glt {
 
   KickoffResources::KickoffResources()
   {
+    background.texture = "background.png";
+
     main_title_text.font = "thickhea.ttf";
     main_title_text.data.content = "Gelatine";
     main_title_text.data.color = GelatineYellow;
@@ -68,6 +70,7 @@ namespace glt {
   {
     gf::BundleBuilder builder(game);
 
+    builder.add_in_bundle(background);
     builder.add_in_bundle(main_title_text);
     builder.add_in_bundle(loading_text);
     builder.add_in_bundle(title_audio);

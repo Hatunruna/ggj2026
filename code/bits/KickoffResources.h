@@ -5,6 +5,7 @@
 
 #include <gf2/core/AudioSourceData.h>
 #include <gf2/core/ResourceBundle.h>
+#include <gf2/core/SpriteData.h>
 
 #include <gf2/graphics/Text.h>
 
@@ -17,6 +18,8 @@ namespace glt {
     gf::ResourceBundle bundle(Game* game) const;
 
     // resources
+
+    gf::SpriteResource background;
 
     gf::TextResource main_title_text;
     gf::TextResource main_subtitle_text;

@@ -4,6 +4,7 @@
 #define GLT_KICKOFF_ACT_H
 
 #include "CommonBaseScene.h"
+#include "KickoffBackgroundScene.h"
 #include "KickoffLoadingScene.h"
 #include "KickoffMenuScene.h"
 #include "KickoffResources.h"
@@ -16,6 +17,7 @@ namespace glt {
     KickoffAct(Game* game, const KickoffResources& resources);
 
     CommonBaseScene common_scene;
+    KickoffBackgroundScene background_scene;
     KickoffWelcomeScene welcome_scene;
     KickoffMenuScene menu_scene;
     KickoffLoadingScene loading_scene;
