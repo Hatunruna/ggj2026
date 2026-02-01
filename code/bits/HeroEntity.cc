@@ -3,7 +3,11 @@
 
 #include "HeroEntity.h"
 
+#include <fmt/format.h>
+
 #include "Game.h"
+#include "gf2/core/Direction.h"
+#include "gf2/core/Id.h"
 
 namespace glt {
 
@@ -22,23 +26,50 @@ namespace glt {
     const WorldState* state = m_game->world_state();
     const HeroState* hero = &state->hero;
 
+    std::string direction_string;
     switch (hero->direction) {
-      case gf::Direction::Left:
-        select(hero->running ? "run_left"_id : "pause_left"_id);
-        break;
-      case gf::Direction::Right:
-        select(hero->running ? "run_right"_id : "pause_right"_id);
-        break;
-      case gf::Direction::Up:
-        select(hero->running ? "run_up"_id : "pause_up"_id);
-        break;
-      case gf::Direction::Down:
-        select(hero->running ? "run_down"_id : "pause_down"_id);
-        break;
-      case gf::Direction::Center:
-        select("pause_left"_id);
-        break;
+    case gf::Direction::Right:
+      direction_string = "right";
+      break;
+
+    case gf::Direction::Down:
+      direction_string = "down";
+      break;
+
+    case gf::Direction::Up:
+      direction_string = "up";
+      break;
+
+    case gf::Direction::Left:
+    default:
+      direction_string = "left";
+      break;
     }
+
+    std::string color_string;
+    switch (state->current_mask_color()) {
+    case MaskColor::Green:
+      color_string = "green";
+      break;
+
+    case MaskColor::Blue:
+      color_string = "blue";
+      break;
+
+    case MaskColor::Red:
+    default:
+      color_string = "red";
+      break;
+    }
+
+    const std::string animation_string_id =
+      fmt::format("{}_{}_{}",
+        hero->running ? "run" : "pause",
+        direction_string,
+        color_string
+    );
+
+    select(gf::hash_string(animation_string_id));
 
     set_location(hero->world_location);
 
