@@ -54,6 +54,11 @@ namespace glt {
     level03_text.data.color = GelatineYellow;
     level03_text.data.character_size = 48.0f;
 
+    level04_text.font = "thickhea.ttf";
+    level04_text.data.content = "Level #04";
+    level04_text.data.color = GelatineYellow;
+    level04_text.data.character_size = 48.0f;
+
     title_audio.filename = "audio/title.ogg";
     title_audio.data.type = gf::AudioSourceType::Music;
     title_audio.data.loop = true;

@@ -27,6 +27,7 @@ namespace glt {
     gf::TextResource level01_text;
     gf::TextResource level02_text;
     gf::TextResource level03_text;
+    gf::TextResource level04_text;
 
     gf::AudioSourceResource title_audio;
   };
