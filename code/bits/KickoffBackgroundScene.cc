@@ -11,13 +11,18 @@ namespace glt {
 
   namespace {
     constexpr gf::Vec2F BackgroundSize = {3840, 2160};
-    constexpr gf::Vec2F KickoffMenuSceneSize = { 1600, 900 };
+    constexpr gf::Vec2F KickoffBackgroundSceneSize = { 1600, 900 };
   }
 
   KickoffBackgroundScene::KickoffBackgroundScene(Game* game, const KickoffResources& resources)
   : m_background(resources.background, game->render_manager(), game->resource_manager())
   {
-    // m_background.set_scale(KickoffMenuSceneSize / BackgroundSize);
+    set_world_size(KickoffBackgroundSceneSize);
+    set_world_center(KickoffBackgroundSceneSize / 2.0f);
+
+    m_background.set_location(KickoffBackgroundSceneSize / 2.0f);
+    m_background.set_origin({ 0.5f, 0.5f });
+    m_background.set_scale(KickoffBackgroundSceneSize / BackgroundSize);
 
     add_world_entity(&m_background);
   }

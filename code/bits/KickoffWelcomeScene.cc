@@ -28,7 +28,7 @@ namespace glt {
     set_world_size(KickoffWelcomeSceneSize);
     set_world_center(KickoffWelcomeSceneSize / 2.0f);
 
-    m_main_title_text.set_location(KickoffWelcomeSceneSize / 2.0f);
+    m_main_title_text.set_location(KickoffWelcomeSceneSize * gf::vec(0.5f, 0.3f));
     m_main_title_text.set_origin({ 0.5f, 0.5f });
     add_world_entity(&m_main_title_text);
 
