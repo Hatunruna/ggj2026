@@ -71,7 +71,6 @@ jobs:
         run: xmake pack --yes -o "build/pack/${{ matrix.configurations.plat }}-${{ matrix.configurations.kind }}-${{ matrix.configurations.mode }}"
 
       - uses: actions/upload-artifact@v4
-        if: ${{ matrix.configurations.kind == "static" }}
         with:
           name: game-snapshot-${{ matrix.configurations.plat }}-${{ matrix.configurations.kind }}-${{ matrix.configurations.mode }}
           path: ${{github.workspace}}/build/pack/${{ matrix.configurations.plat }}-${{ matrix.configurations.kind }}-${{ matrix.configurations.mode }}
