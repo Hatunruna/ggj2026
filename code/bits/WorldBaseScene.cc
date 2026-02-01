@@ -58,8 +58,7 @@ namespace glt {
   {
     set_clear_color(0xCBCBCB);
 
-    set_world_size(TileSize * 10);
-    set_world_center(TileSize * 5);
+    set_world_size(TileSize * 8);
 
     m_star.set_location(game->world_state()->map.ref->goal * TileSize);
 
@@ -148,7 +147,7 @@ namespace glt {
     const HeroState* hero = &m_game->world_state()->hero;
 
     const gf::Vec2F hero_location = hero->world_location;
-    set_world_center(hero_location);
+    set_world_center(hero_location + TileSize * 0.5f);
 
     if (hero->status == HeroStatus::End) {
       m_game->replace_scene(&m_game->world_act()->finish_scene);
