@@ -66,9 +66,10 @@ namespace glt {
 
   bool WorldState::is_mask_available(std::size_t index) const
   {
+    assert(index < map.masks.size());
     const MaskMap& mask = map.ref->masks[index];
     const gf::Vec2I position = hero.tile_location;
-    return is_mask_compatible_with_position(map.ref, mask, position);
+    return is_mask_collected(index) && is_mask_compatible_with_position(map.ref, mask, position);
   }
 
   bool WorldState::is_mask_current(std::size_t index) const
