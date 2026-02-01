@@ -260,9 +260,12 @@ namespace glt {
     blue_mask_audio.data.loop = true;
 
     finish_text.font = "thickhea.ttf";
-    finish_text.data.content = "Congratulations! You found the star!";
+    finish_text.data.content = "Congratulations!\nYou found the star!";
     finish_text.data.color = GelatineYellow;
     finish_text.data.character_size = 128.0f;
+    finish_text.data.paragraph_width = 1600.0f;
+    finish_text.data.alignment = gf::Alignment::Center;
+
   }
 
   gf::ResourceBundle WorldResources::bundle(Game* game) const
