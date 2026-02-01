@@ -26,7 +26,7 @@ namespace glt {
     constexpr gf::Color BackgroundColor = gf::Color(0x0F0F0F, 175);
     constexpr gf::Color ActiveBackgroundColor = gf::Color(0x0F0F0F, 100);
     constexpr gf::Color ActiveOutlineColor = gf::Color(0xEFEFEF);
-    constexpr float SpriteScale = 1.10f;
+    constexpr float SpriteFactor = 3.0f / 128.0f;
   }
 
   InventoryHudEntity::InventoryHudEntity(Game* game, const WorldResources& resources)
@@ -40,25 +40,29 @@ namespace glt {
   , m_blue_mask_shaded(resources.blue_mask_sprite_shaded, game->render_manager(), game->resource_manager())
   , m_placeholder_mask(resources.placeholder_mask, game->render_manager(), game->resource_manager())
   {
+    gf::Positioning positioning(m_game->window()->surface_size());
+    const float sprite_scale = positioning.relative_size({ 1.0f, RelativeMaskBoxWidth }).y * SpriteFactor;
+
     m_red_mask.set_origin(gf::Vec2F(0.5f, 0.5f));
-    m_red_mask.set_scale(SpriteScale);
+    m_red_mask.set_scale(sprite_scale);
 
     m_red_mask_shaded.set_origin(gf::Vec2F(0.5f, 0.5f));
-    m_red_mask_shaded.set_scale(SpriteScale);
+    m_red_mask_shaded.set_scale(sprite_scale);
 
     m_green_mask.set_origin(gf::Vec2F(0.5f, 0.5f));
-    m_green_mask.set_scale(SpriteScale);
+    m_green_mask.set_scale(sprite_scale);
 
     m_green_mask_shaded.set_origin(gf::Vec2F(0.5f, 0.5f));
-    m_green_mask_shaded.set_scale(SpriteScale);
+    m_green_mask_shaded.set_scale(sprite_scale);
 
     m_blue_mask.set_origin(gf::Vec2F(0.5f, 0.5f));
-    m_blue_mask.set_scale(SpriteScale);
+    m_blue_mask.set_scale(sprite_scale);
 
     m_blue_mask_shaded.set_origin(gf::Vec2F(0.5f, 0.5f));
-    m_blue_mask_shaded.set_scale(SpriteScale);
+    m_blue_mask_shaded.set_scale(sprite_scale);
 
     m_placeholder_mask.set_origin(gf::Vec2F(0.5f, 0.5f));
+    m_placeholder_mask.set_scale(sprite_scale * 0.9f);
   }
 
   void InventoryHudEntity::update(gf::Time time)
@@ -76,6 +80,7 @@ namespace glt {
     m_shapes.render(recorder);
 
     gf::Positioning positioning(m_game->window()->surface_size());
+    const float sprite_scale = positioning.relative_size({ 1.0f, RelativeMaskBoxWidth }).y * SpriteFactor;
 
     const WorldState* world_state = m_game->world_state();
     const std::size_t mask_count = world_state->mask_count();
@@ -87,16 +92,19 @@ namespace glt {
           switch (world_state->mask_color(i)) {
           case MaskColor::Red:
             m_red_mask.set_location(positioning.relative_point(compute_relative_mask_center(i, mask_count) + 0.5f));
+            m_red_mask.set_scale(sprite_scale);
             m_red_mask.render(recorder);
             break;
 
           case MaskColor::Green:
             m_green_mask.set_location(positioning.relative_point(compute_relative_mask_center(i, mask_count) + 0.5f));
+            m_green_mask.set_scale(sprite_scale);
             m_green_mask.render(recorder);
             break;
 
           case MaskColor::Blue:
             m_blue_mask.set_location(positioning.relative_point(compute_relative_mask_center(i, mask_count) + 0.5f));
+            m_blue_mask.set_scale(sprite_scale);
             m_blue_mask.render(recorder);
             break;
 
@@ -109,16 +117,19 @@ namespace glt {
           switch (world_state->mask_color(i)) {
           case MaskColor::Red:
             m_red_mask_shaded.set_location(positioning.relative_point(compute_relative_mask_center(i, mask_count) + 0.5f));
+            m_red_mask_shaded.set_scale(sprite_scale);
             m_red_mask_shaded.render(recorder);
             break;
 
           case MaskColor::Green:
             m_green_mask_shaded.set_location(positioning.relative_point(compute_relative_mask_center(i, mask_count) + 0.5f));
+            m_green_mask_shaded.set_scale(sprite_scale);
             m_green_mask_shaded.render(recorder);
             break;
 
           case MaskColor::Blue:
             m_blue_mask_shaded.set_location(positioning.relative_point(compute_relative_mask_center(i, mask_count) + 0.5f));
+            m_blue_mask_shaded.set_scale(sprite_scale);
             m_blue_mask_shaded.render(recorder);
             break;
 
@@ -128,6 +139,7 @@ namespace glt {
         }
       } else {
         m_placeholder_mask.set_location(positioning.relative_point(compute_relative_mask_center(i, mask_count) + 0.5f));
+        m_placeholder_mask.set_scale(sprite_scale * 0.9f);
         m_placeholder_mask.render(recorder);
       }
     }
