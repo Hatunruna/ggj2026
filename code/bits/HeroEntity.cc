@@ -84,10 +84,10 @@ namespace glt {
       );
 
       if (finished()) {
-        m_mask_color = state->current_mask_color();
         hero->status = HeroStatus::Move;
         hero->direction = direction_override;
         state->map.current_mask = state->map.next_mask;
+        m_mask_color = state->current_mask_color();
       }
     } else {
       animation_string_id =
