@@ -25,7 +25,7 @@ namespace glt {
         state.hero.move_cooldown.as_seconds() / HeroMoveCooldown.as_seconds()
       );
 
-      state.hero.running = true;
+      state.hero.running = state.hero.tile_location != state.hero.tile_target;
       return;
     }
 
