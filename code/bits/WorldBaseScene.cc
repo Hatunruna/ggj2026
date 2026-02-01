@@ -20,6 +20,30 @@
 
 namespace glt {
 
+  namespace {
+    using namespace gf::literals;
+
+    struct LevelSetting {
+      gf::Id id;
+      gf::Scancode scancode;
+      std::size_t index;
+    };
+
+    constexpr LevelSetting LevelSettings[] = {
+      { "mask0"_id, gf::Scancode::Num1, 0 },
+      { "mask1"_id, gf::Scancode::Num2, 1 },
+      { "mask2"_id, gf::Scancode::Num3, 2 },
+      { "mask3"_id, gf::Scancode::Num4, 3 },
+      { "mask4"_id, gf::Scancode::Num5, 4 },
+      { "mask5"_id, gf::Scancode::Num6, 5 },
+      { "mask6"_id, gf::Scancode::Num7, 6 },
+      { "mask7"_id, gf::Scancode::Num8, 7 },
+      { "mask8"_id, gf::Scancode::Num9, 8 },
+      { "mask9"_id, gf::Scancode::Num0, 9 },
+    };
+
+  }
+
   WorldBaseScene::WorldBaseScene(Game* game, const WorldResources& resources)
   : m_game(game)
   , m_action_group(compute_settings())
@@ -56,6 +80,10 @@ namespace glt {
     settings.actions.emplace("left"_id, gf::continuous_action().add_keycode_control(gf::Keycode::Left).add_scancode_control(gf::Scancode::A));
     settings.actions.emplace("right"_id, gf::continuous_action().add_keycode_control(gf::Keycode::Right).add_scancode_control(gf::Scancode::D));
 
+    for (const LevelSetting level_setting : LevelSettings) {
+      settings.actions.emplace(level_setting.id, gf::instantaneous_action().add_scancode_control(level_setting.scancode));
+    }
+
     settings.actions.emplace("back"_id, gf::instantaneous_action().add_scancode_control(gf::Scancode::Backspace));
 
     return settings;
@@ -83,6 +111,15 @@ namespace glt {
       hero->expected_direction = gf::Direction::Right;
     } else {
       hero->expected_direction = gf::Direction::Center;
+    }
+
+    for (const LevelSetting level_setting : LevelSettings) {
+      if (m_action_group.active(level_setting.id)) {
+        if (level_setting.index != state->map.current_mask && state->is_mask_available(level_setting.index)) {
+          state->map.current_mask = level_setting.index;
+          break;
+        }
+      }
     }
 
     if (m_action_group.active("back"_id)) {
