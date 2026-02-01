@@ -12,13 +12,8 @@ jobs:
       fail-fast: false
       matrix:
         configurations:
-        - { name: Windows,  runner: windows-latest, shell: pwsh, plat: windows, arch: x64,    kind: shared, mode: debug       }
-        - { name: Windows,  runner: windows-latest, shell: pwsh, plat: windows, arch: x64,    kind: shared, mode: release     }
         - { name: Windows,  runner: windows-latest, shell: pwsh, plat: windows, arch: x64,    kind: static, mode: debug       }
         - { name: Windows,  runner: windows-latest, shell: pwsh, plat: windows, arch: x64,    kind: static, mode: release     }
-        - { name: Linux,    runner: ubuntu-latest,  shell: bash, plat: linux,   arch: x86_64, kind: shared, mode: debug       }
-        - { name: Linux,    runner: ubuntu-latest,  shell: bash, plat: linux,   arch: x86_64, kind: shared, mode: release     }
-        - { name: Linux,    runner: ubuntu-latest,  shell: bash, plat: linux,   arch: x86_64, kind: shared, mode: sanitizers  }
         - { name: Linux,    runner: ubuntu-latest,  shell: bash, plat: linux,   arch: x86_64, kind: static, mode: debug       }
         - { name: Linux,    runner: ubuntu-latest,  shell: bash, plat: linux,   arch: x86_64, kind: static, mode: release     }
 
@@ -76,7 +71,7 @@ jobs:
         run: xmake pack --yes -o "build/pack/${{ matrix.configurations.plat }}-${{ matrix.configurations.kind }}-${{ matrix.configurations.mode }}"
 
       - uses: actions/upload-artifact@v4
-        if: ${{ matrix.configurations.kind }} == "static"
+        if: ${{ matrix.configurations.kind == "static" }}
         with:
           name: game-snapshot-${{ matrix.configurations.plat }}-${{ matrix.configurations.kind }}-${{ matrix.configurations.mode }}
           path: ${{github.workspace}}/build/pack/${{ matrix.configurations.plat }}-${{ matrix.configurations.kind }}-${{ matrix.configurations.mode }}
