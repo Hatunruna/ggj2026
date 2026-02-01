@@ -6,15 +6,10 @@
 #include <gf2/core/Color.h>
 #include <gf2/framework/BundleBuilder.h>
 
+#include "Constants.h"
 #include "Game.h"
 
 namespace glt {
-
-  namespace {
-
-    constexpr gf::Color GelatineYellow = 0xF5E74E;
-
-  }
 
   KickoffResources::KickoffResources()
   {

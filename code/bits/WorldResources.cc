@@ -8,6 +8,7 @@
 #include <gf2/core/ShapeBuffer.h>
 #include <gf2/framework/BundleBuilder.h>
 
+#include "Constants.h"
 #include "Game.h"
 
 namespace glt {
@@ -138,6 +139,9 @@ namespace glt {
 
     placeholder_mask.texture = "sprites/unknown_mask.png";
 
+    star_sprite.texture = "sprites/star.png";
+    star_sprite.data.color = GelatineYellow;
+
     red_mask_audio.filename = "audio/red-mask.ogg";
     red_mask_audio.data.loop = true;
 
@@ -174,6 +178,8 @@ namespace glt {
     builder.add_in_bundle(blue_mask_sprite);
     builder.add_in_bundle(blue_mask_sprite_shaded);
     builder.add_in_bundle(placeholder_mask);
+
+    builder.add_in_bundle(star_sprite);
 
     return builder.make_bundle();
   }

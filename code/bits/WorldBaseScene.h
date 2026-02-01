@@ -41,6 +41,8 @@ namespace glt {
     HeroEntity m_hero;
     MapMaskEntity m_mask_map;
 
+    gf::SpriteEntity m_star;
+
     SoundEntity m_sounds;
   };
 

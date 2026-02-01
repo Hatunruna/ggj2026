@@ -52,12 +52,15 @@ namespace glt {
   , m_mask(game, resources)
   , m_hero(game, resources)
   , m_mask_map(game, resources.map)
+  , m_star(resources.star_sprite, game->render_manager(), game->resource_manager())
   , m_sounds(game, resources)
   {
-    set_clear_color(0xE8D99D);
+    set_clear_color(0xCBCBCB);
 
     set_world_size(TileSize * 10);
     set_world_center(TileSize * 5);
+
+    m_star.set_location(game->world_state()->map.ref->goal * TileSize);
 
     add_model(game->world_model());
 
@@ -65,6 +68,7 @@ namespace glt {
 
     add_world_entity(&m_ground_map);
     add_world_entity(&m_mask);
+    add_world_entity(&m_star);
     add_world_entity(&m_hero);
     add_world_entity(&m_mask_map);
     add_world_entity(&m_sounds);

@@ -119,7 +119,7 @@
    <wangcolor name="Red" color="#b62929" tile="0" probability="1"/>
    <wangcolor name="Green" color="#46d943" tile="4" probability="1"/>
    <wangcolor name="Blue" color="#37ae3" tile="8" probability="1"/>
-   <wangcolor name="Sand" color="#e7d89c" tile="12" probability="1"/>
+   <wangcolor name="Sand" color="#cacaca" tile="12" probability="1"/>
    <wangtile tileid="0" wangid="0,1,0,1,0,1,0,1"/>
    <wangtile tileid="1" wangid="0,1,0,1,0,1,0,1"/>
    <wangtile tileid="2" wangid="0,1,0,1,0,1,0,1"/>
