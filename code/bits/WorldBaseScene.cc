@@ -117,14 +117,16 @@ namespace glt {
       hero->expected_direction = gf::Direction::Center;
     }
 
-    for (const LevelSetting level_setting : LevelSettings) {
-      if (m_action_group.active(level_setting.id)) {
-        if (level_setting.index >= state->mask_count()) {
-          break;
-        }
-        if (level_setting.index != state->map.current_mask && state->is_mask_available(level_setting.index)) {
-          state->map.current_mask = level_setting.index;
-          break;
+    if (!state->hero.running) {
+      for (const LevelSetting level_setting : LevelSettings) {
+        if (m_action_group.active(level_setting.id)) {
+          if (level_setting.index >= state->mask_count()) {
+            break;
+          }
+          if (level_setting.index != state->map.current_mask && state->is_mask_available(level_setting.index)) {
+            state->map.current_mask = level_setting.index;
+            break;
+          }
         }
       }
     }
