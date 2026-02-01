@@ -34,7 +34,30 @@ namespace glt {
 
   void SoundEntity::update([[maybe_unused]] gf::Time time)
   {
-    const MaskColor new_mask_color = m_game->world_state()->current_mask_color();
+    const WorldState* state = m_game->world_state();
+
+    if (state->hero.status == HeroStatus::End) {
+      switch (m_mask_color) {
+      case MaskColor::Red:
+        m_red_mask_sound->set_fade(1.0f, 0.0f, MaskAudioFade);
+        break;
+      case MaskColor::Blue:
+        m_blue_mask_sound->set_fade(1.0f, 0.0f, MaskAudioFade);
+        break;
+      case MaskColor::Green:
+        m_green_mask_sound->set_fade(1.0f, 0.0f, MaskAudioFade);
+        break;
+
+      default:
+        // nothing to do
+        break;
+      }
+
+      return;
+    }
+
+    const MaskColor new_mask_color = state->current_mask_color();
+
     if (new_mask_color == m_mask_color) {
       return;
     }
