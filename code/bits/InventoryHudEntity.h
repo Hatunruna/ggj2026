@@ -20,6 +20,7 @@ namespace glt {
   public:
     InventoryHudEntity(Game* game, const WorldResources& resources);
 
+    void update(gf::Time time) override;
     void render(gf::RenderRecorder& recorder) override;
     void resize(gf::Vec2I surface_size) override;
 
@@ -28,6 +29,8 @@ namespace glt {
     static gf::Vec2F compute_relative_mask_center(std::size_t index, std::size_t mask_count);
 
     Game* m_game = nullptr;
+
+    std::size_t m_last_mask = 0;
 
     gf::ShapeGroupEntity m_shapes;
 

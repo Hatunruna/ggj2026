@@ -61,6 +61,16 @@ namespace glt {
     m_placeholder_mask.set_origin(gf::Vec2F(0.5f, 0.5f));
   }
 
+  void InventoryHudEntity::update(gf::Time time)
+  {
+    std::size_t current_mask = m_game->world_state()->map.current_mask;
+
+    if (m_last_mask != current_mask) {
+      resize(m_game->window()->surface_size());
+      m_last_mask = current_mask;
+    }
+  }
+
   void InventoryHudEntity::render(gf::RenderRecorder& recorder)
   {
     m_shapes.render(recorder);
