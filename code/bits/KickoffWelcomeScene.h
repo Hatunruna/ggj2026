@@ -6,6 +6,7 @@
 #include <gf2/graphics/Scene.h>
 
 #include <gf2/core/ActionGroup.h>
+#include <gf2/audio/Music.h>
 #include <gf2/graphics/TextEntity.h>
 #include <gf2/graphics/FontAtlas.h>
 
@@ -23,6 +24,7 @@ namespace glt {
 
     void do_process_event(const gf::Event& event) override;
     void do_handle_actions() override;
+    void on_rank_change(gf::SceneRank old_rank, gf::SceneRank new_rank) override;
 
     Game* m_game;
 
@@ -31,6 +33,8 @@ namespace glt {
     gf::FontAtlas m_atlas;
     gf::TextEntity m_main_title_text;
     gf::TextEntity m_main_subtitle_text;
+
+    gf::Music* m_title_audio = nullptr;
   };
 
 }

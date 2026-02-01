@@ -8,6 +8,8 @@
 #include <gf2/graphics/TextEntity.h>
 #include <gf2/graphics/FontAtlas.h>
 
+#include <gf2/audio/Music.h>
+
 #include "KickoffResources.h"
 
 namespace glt {
@@ -25,6 +27,8 @@ namespace glt {
     gf::FontAtlas m_atlas;
 
     gf::TextEntity m_loading_text;
+
+    gf::Music* m_title_audio = nullptr;
   };
 
 }

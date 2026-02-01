@@ -3,6 +3,7 @@
 #ifndef GLT_KICKOFF_RESOURCES_H
 #define GLT_KICKOFF_RESOURCES_H
 
+#include <gf2/core/AudioSourceData.h>
 #include <gf2/core/ResourceBundle.h>
 
 #include <gf2/graphics/Text.h>
@@ -27,6 +28,7 @@ namespace glt {
     gf::TextResource level02_text;
     gf::TextResource level03_text;
 
+    gf::AudioSourceResource title_audio;
   };
 
 }

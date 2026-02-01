@@ -5,6 +5,7 @@
 
 #include <gf2/core/Color.h>
 
+#include "Constants.h"
 #include "Game.h"
 
 namespace glt {
@@ -19,6 +20,7 @@ namespace glt {
   : m_game(game)
   , m_atlas({ 1024, 1024 }, game->render_manager())
   , m_loading_text(&m_atlas, resources.loading_text, game->render_manager(), game->resource_manager())
+  , m_title_audio(game->resource_manager()->get<gf::Music>(resources.title_audio.filename))
   {
     set_world_size(KickoffLoadingSceneSize);
     set_world_center(KickoffLoadingSceneSize / 2.0f);
@@ -31,6 +33,7 @@ namespace glt {
   void KickoffLoadingScene::do_update([[maybe_unused]] gf::Time time)
   {
     if (m_game->world_loaded()) {
+      m_title_audio->set_fade(1.0f, 0.0f, MaskAudioFade);
       m_game->start_world();
     }
   }

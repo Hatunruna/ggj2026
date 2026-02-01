@@ -3,6 +3,7 @@
 
 #include "KickoffResources.h"
 
+#include <gf2/core/AudioSourceData.h>
 #include <gf2/core/Color.h>
 #include <gf2/framework/BundleBuilder.h>
 
@@ -52,6 +53,10 @@ namespace glt {
     level03_text.data.content = "Level #03";
     level03_text.data.color = GelatineYellow;
     level03_text.data.character_size = 48.0f;
+
+    title_audio.filename = "audio/title.ogg";
+    title_audio.data.type = gf::AudioSourceType::Music;
+    title_audio.data.loop = true;
   }
 
   gf::ResourceBundle KickoffResources::bundle(Game* game) const
@@ -60,6 +65,7 @@ namespace glt {
 
     builder.add_in_bundle(main_title_text);
     builder.add_in_bundle(loading_text);
+    builder.add_in_bundle(title_audio);
 
     return builder.make_bundle();
   }
