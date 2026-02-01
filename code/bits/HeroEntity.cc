@@ -6,6 +6,8 @@
 #include <fmt/format.h>
 
 #include "Game.h"
+#include "HeroState.h"
+#include "MaskColor.h"
 #include "gf2/core/Direction.h"
 #include "gf2/core/Id.h"
 
@@ -14,6 +16,7 @@ namespace glt {
   HeroEntity::HeroEntity(Game* game, const WorldResources& resources)
   : gf::AnimationGroupEntity(resources.hero_animations, game->render_manager(), game->resource_manager())
   , m_game(game)
+  , m_mask_color(game->world_state()->current_mask_color())
   {
     WorldState* state =game->world_state();
     state->hero.tile_location = state->hero.tile_target =  state->map.ref->start;
@@ -23,51 +26,76 @@ namespace glt {
   {
     using namespace gf::literals;
 
-    const WorldState* state = m_game->world_state();
-    const HeroState* hero = &state->hero;
+    WorldState* state = m_game->world_state();
+    HeroState* hero = &state->hero;
 
-    std::string direction_string;
-    switch (hero->direction) {
-    case gf::Direction::Right:
-      direction_string = "right";
-      break;
+    auto color_to_string = [](MaskColor color) -> std::string {
+      std::string string;
+      switch (color) {
+      case MaskColor::Green:
+        string = "green";
+        break;
 
-    case gf::Direction::Down:
-      direction_string = "down";
-      break;
+      case MaskColor::Blue:
+        string = "blue";
+        break;
 
-    case gf::Direction::Up:
-      direction_string = "up";
-      break;
+      case MaskColor::Red:
+      default:
+        string = "red";
+        break;
+      }
 
-    case gf::Direction::Left:
-    default:
-      direction_string = "left";
-      break;
+      return string;
+    };
+
+    auto direction_to_string = [](gf::Direction direction) -> std::string {
+      std::string string;
+      switch (direction) {
+      case gf::Direction::Right:
+        string = "right";
+        break;
+
+      case gf::Direction::Down:
+        string = "down";
+        break;
+
+      case gf::Direction::Up:
+        string = "up";
+        break;
+
+      case gf::Direction::Left:
+      default:
+        string = "left";
+        break;
+      }
+
+      return string;
+    };
+
+    std::string animation_string_id;
+    if (hero->status == HeroStatus::ChangeMask) {
+      gf::Direction direction_override = (hero->direction == gf::Direction::Up || hero->direction == gf::Direction::Left) ? gf::Direction::Left : gf::Direction::Right;
+       animation_string_id =
+        fmt::format("change_mask_{}_to_{}_{}",
+          color_to_string(m_mask_color),
+          color_to_string(state->current_mask_color()),
+          direction_to_string(direction_override)
+      );
+
+      if (finished()) {
+        m_mask_color = state->current_mask_color();
+        hero->status = HeroStatus::Move;
+        hero->direction = direction_override;
+      }
+    } else {
+      animation_string_id =
+        fmt::format("{}_{}_{}",
+          hero->running ? "run" : "pause",
+          direction_to_string(hero->direction),
+          color_to_string(m_mask_color)
+      );
     }
-
-    std::string color_string;
-    switch (state->current_mask_color()) {
-    case MaskColor::Green:
-      color_string = "green";
-      break;
-
-    case MaskColor::Blue:
-      color_string = "blue";
-      break;
-
-    case MaskColor::Red:
-    default:
-      color_string = "red";
-      break;
-    }
-
-    const std::string animation_string_id =
-      fmt::format("{}_{}_{}",
-        hero->running ? "run" : "pause",
-        direction_string,
-        color_string
-    );
 
     select(gf::hash_string(animation_string_id));
 

@@ -15,6 +15,7 @@
 
 #include "Constants.h"
 #include "Game.h"
+#include "HeroState.h"
 #include "WorldState.h"
 #include "gf2/graphics/Scene.h"
 
@@ -105,27 +106,30 @@ namespace glt {
     WorldState* state = m_game->world_state();
     HeroState* hero = &state->hero;
 
-    if (m_action_group.active("up"_id)) {
-      hero->expected_direction = gf::Direction::Up;
-    } else if (m_action_group.active("down"_id)) {
-      hero->expected_direction = gf::Direction::Down;
-    } else if (m_action_group.active("left"_id)) {
-      hero->expected_direction = gf::Direction::Left;
-    } else if (m_action_group.active("right"_id)) {
-      hero->expected_direction = gf::Direction::Right;
-    } else {
-      hero->expected_direction = gf::Direction::Center;
-    }
+    if (hero->status == HeroStatus::Move) {
+      if (m_action_group.active("up"_id)) {
+        hero->expected_direction = gf::Direction::Up;
+      } else if (m_action_group.active("down"_id)) {
+        hero->expected_direction = gf::Direction::Down;
+      } else if (m_action_group.active("left"_id)) {
+        hero->expected_direction = gf::Direction::Left;
+      } else if (m_action_group.active("right"_id)) {
+        hero->expected_direction = gf::Direction::Right;
+      } else {
+        hero->expected_direction = gf::Direction::Center;
+      }
 
-    if (!state->hero.running) {
-      for (const LevelSetting level_setting : LevelSettings) {
-        if (m_action_group.active(level_setting.id)) {
-          if (level_setting.index >= state->mask_count()) {
-            break;
-          }
-          if (level_setting.index != state->map.current_mask && state->is_mask_available(level_setting.index)) {
-            state->map.current_mask = level_setting.index;
-            break;
+      if (!state->hero.running) {
+        for (const LevelSetting level_setting : LevelSettings) {
+          if (m_action_group.active(level_setting.id)) {
+            if (level_setting.index >= state->mask_count()) {
+              break;
+            }
+            if (level_setting.index != state->map.current_mask && state->is_mask_available(level_setting.index)) {
+              state->map.current_mask = level_setting.index;
+              hero->status = HeroStatus::ChangeMask;
+              break;
+            }
           }
         }
       }

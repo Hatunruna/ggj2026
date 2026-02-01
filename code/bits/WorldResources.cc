@@ -218,16 +218,34 @@ namespace glt {
       animation.add_tileset(15, {8, 8}, gf::seconds(1.0f / 25.0f), 12);
       animation.add_tileset(16, {8, 8}, gf::seconds(1.0f / 25.0f), 45);
 
-      hero_animations.data.animations.emplace("change_mask_red_to_red"_id, animation);
+      hero_animations.data.animations.emplace("change_mask_red_to_red_left"_id, animation);
       // FIXME: Generate the right animations when the texture will be available
-      hero_animations.data.animations.emplace("change_mask_red_to_green"_id, animation);
-      hero_animations.data.animations.emplace("change_mask_red_to_blue"_id, animation);
-      hero_animations.data.animations.emplace("change_mask_green_to_red"_id, animation);
-      hero_animations.data.animations.emplace("change_mask_green_to_green"_id, animation);
-      hero_animations.data.animations.emplace("change_mask_green_to_blue"_id, animation);
-      hero_animations.data.animations.emplace("change_mask_blue_to_red"_id, animation);
-      hero_animations.data.animations.emplace("change_mask_blue_to_green"_id, animation);
-      hero_animations.data.animations.emplace("change_mask_blue_to_blue"_id, animation);
+      hero_animations.data.animations.emplace("change_mask_red_to_green_left"_id, animation);
+      hero_animations.data.animations.emplace("change_mask_red_to_blue_left"_id, animation);
+      hero_animations.data.animations.emplace("change_mask_green_to_red_left"_id, animation);
+      hero_animations.data.animations.emplace("change_mask_green_to_green_left"_id, animation);
+      hero_animations.data.animations.emplace("change_mask_green_to_blue_left"_id, animation);
+      hero_animations.data.animations.emplace("change_mask_blue_to_red_left"_id, animation);
+      hero_animations.data.animations.emplace("change_mask_blue_to_green_left"_id, animation);
+      hero_animations.data.animations.emplace("change_mask_blue_to_blue_left"_id, animation);
+    }
+
+    {
+      gf::AnimationData animation;
+      animation.add_tileset(14, {8, 8}, gf::seconds(1.0f / 25.0f), gf::AnimationFrameFlip::Horizontally, 64);
+      animation.add_tileset(15, {8, 8}, gf::seconds(1.0f / 25.0f), gf::AnimationFrameFlip::Horizontally, 12);
+      animation.add_tileset(16, {8, 8}, gf::seconds(1.0f / 25.0f), gf::AnimationFrameFlip::Horizontally, 45);
+
+      hero_animations.data.animations.emplace("change_mask_red_to_red_right"_id, animation);
+      // FIXME: Generate the right animations when the texture will be available
+      hero_animations.data.animations.emplace("change_mask_red_to_green_right"_id, animation);
+      hero_animations.data.animations.emplace("change_mask_red_to_blue_right"_id, animation);
+      hero_animations.data.animations.emplace("change_mask_green_to_red_right"_id, animation);
+      hero_animations.data.animations.emplace("change_mask_green_to_green_right"_id, animation);
+      hero_animations.data.animations.emplace("change_mask_green_to_blue_right"_id, animation);
+      hero_animations.data.animations.emplace("change_mask_blue_to_red_right"_id, animation);
+      hero_animations.data.animations.emplace("change_mask_blue_to_green_right"_id, animation);
+      hero_animations.data.animations.emplace("change_mask_blue_to_blue_right"_id, animation);
     }
 
     red_mask_sprite.texture = "sprites/red_mask.png";

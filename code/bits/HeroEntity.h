@@ -5,6 +5,7 @@
 
 #include <gf2/graphics/AnimationGroupEntity.h>
 
+#include "MaskColor.h"
 #include "WorldResources.h"
 
 namespace glt {
@@ -18,6 +19,8 @@ namespace glt {
 
   private:
     Game* m_game = nullptr;
+
+    MaskColor m_mask_color;
   };
 
 }
