@@ -14,6 +14,7 @@ namespace glt {
     void bind(const WorldData& data);
 
     MaskColor current_mask_color() const;
+    MaskColor next_mask_color() const;
 
     bool reachable(gf::Vec2I position) const;
 

@@ -79,7 +79,7 @@ namespace glt {
        animation_string_id =
         fmt::format("change_mask_{}_to_{}_{}",
           color_to_string(m_mask_color),
-          color_to_string(state->current_mask_color()),
+          color_to_string(state->next_mask_color()),
           direction_to_string(direction_override)
       );
 

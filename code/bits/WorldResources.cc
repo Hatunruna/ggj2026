@@ -21,31 +21,35 @@ namespace glt {
 
     hero_animations.textures = {
       // Run animations
-      "animations/hero/run-left-right-red.png",
-      "animations/hero/run-left-right-green.png",
-      "animations/hero/run-left-right-blue.png",
-      "animations/hero/run-up.png",
-      "animations/hero/run-down-red.png",
-      "animations/hero/run-down-green.png",
-      "animations/hero/run-down-blue.png",
+      "animations/hero/run-left-right-red.png",     //  0
+      "animations/hero/run-left-right-green.png",   //  1
+      "animations/hero/run-left-right-blue.png",    //  2
+      "animations/hero/run-up.png",                 //  3
+      "animations/hero/run-down-red.png",           //  4
+      "animations/hero/run-down-green.png",         //  5
+      "animations/hero/run-down-blue.png",          //  6
 
       // Pause animations
-      "animations/hero/pause-left-right-red.png",
-      "animations/hero/pause-left-right-green.png",
-      "animations/hero/pause-left-right-blue.png",
-      "animations/hero/pause-up.png",
-      "animations/hero/pause-down-red.png",
-      "animations/hero/pause-down-green.png",
-      "animations/hero/pause-down-blue.png",
+      "animations/hero/pause-left-right-red.png",   //  7
+      "animations/hero/pause-left-right-green.png", //  8
+      "animations/hero/pause-left-right-blue.png",  //  9
+      "animations/hero/pause-up.png",               // 10
+      "animations/hero/pause-down-red.png",         // 11
+      "animations/hero/pause-down-green.png",       // 12
+      "animations/hero/pause-down-blue.png",        // 13
 
       // Remove mask animations
-      "animations/hero/remove-mask-red-0.png",
-      "animations/hero/remove-mask-red-1.png",
-      // TODO: add other color
+      "animations/hero/remove-mask-red-0.png",      // 14
+      "animations/hero/remove-mask-red-1.png",      // 15
+      "animations/hero/remove-mask-green-0.png",    // 16
+      "animations/hero/remove-mask-green-1.png",    // 17
+      "animations/hero/remove-mask-blue-0.png",     // 18
+      "animations/hero/remove-mask-blue-1.png",     // 19
 
       // Wear mask animation
-      "animations/hero/wear-mask-red.png",
-      // TODO: add other color
+      "animations/hero/wear-mask-red.png",          // 20
+      "animations/hero/wear-mask-green.png",        // 21
+      "animations/hero/wear-mask-blue.png",         // 22
     };
 
     {
@@ -215,36 +219,162 @@ namespace glt {
     {
       gf::AnimationData animation;
       animation.add_tileset(14, {8, 8}, gf::seconds(1.0f / 25.0f), 64);
-      animation.add_tileset(15, {8, 8}, gf::seconds(1.0f / 25.0f), 12);
-      animation.add_tileset(16, {8, 8}, gf::seconds(1.0f / 25.0f), 45);
+      animation.add_tileset(15, {8, 8}, gf::seconds(1.0f / 25.0f), 16);
+      animation.add_tileset(20, {8, 8}, gf::seconds(1.0f / 25.0f), 41);
 
       hero_animations.data.animations.emplace("change_mask_red_to_red_left"_id, animation);
-      // FIXME: Generate the right animations when the texture will be available
+    }
+
+    {
+      gf::AnimationData animation;
+      animation.add_tileset(14, {8, 8}, gf::seconds(1.0f / 25.0f), 64);
+      animation.add_tileset(15, {8, 8}, gf::seconds(1.0f / 25.0f), 16);
+      animation.add_tileset(21, {8, 8}, gf::seconds(1.0f / 25.0f), 41);
+
       hero_animations.data.animations.emplace("change_mask_red_to_green_left"_id, animation);
+    }
+
+    {
+      gf::AnimationData animation;
+      animation.add_tileset(14, {8, 8}, gf::seconds(1.0f / 25.0f), 64);
+      animation.add_tileset(15, {8, 8}, gf::seconds(1.0f / 25.0f), 16);
+      animation.add_tileset(22, {8, 8}, gf::seconds(1.0f / 25.0f), 41);
+
       hero_animations.data.animations.emplace("change_mask_red_to_blue_left"_id, animation);
+    }
+
+    {
+      gf::AnimationData animation;
+      animation.add_tileset(16, {8, 8}, gf::seconds(1.0f / 25.0f), 64);
+      animation.add_tileset(17, {8, 8}, gf::seconds(1.0f / 25.0f), 16);
+      animation.add_tileset(20, {8, 8}, gf::seconds(1.0f / 25.0f), 41);
+
       hero_animations.data.animations.emplace("change_mask_green_to_red_left"_id, animation);
+    }
+
+    {
+      gf::AnimationData animation;
+      animation.add_tileset(16, {8, 8}, gf::seconds(1.0f / 25.0f), 64);
+      animation.add_tileset(17, {8, 8}, gf::seconds(1.0f / 25.0f), 16);
+      animation.add_tileset(21, {8, 8}, gf::seconds(1.0f / 25.0f), 41);
+
       hero_animations.data.animations.emplace("change_mask_green_to_green_left"_id, animation);
+    }
+
+    {
+      gf::AnimationData animation;
+      animation.add_tileset(16, {8, 8}, gf::seconds(1.0f / 25.0f), 64);
+      animation.add_tileset(17, {8, 8}, gf::seconds(1.0f / 25.0f), 16);
+      animation.add_tileset(22, {8, 8}, gf::seconds(1.0f / 25.0f), 41);
+
       hero_animations.data.animations.emplace("change_mask_green_to_blue_left"_id, animation);
+    }
+
+    {
+      gf::AnimationData animation;
+      animation.add_tileset(18, {8, 8}, gf::seconds(1.0f / 25.0f), 64);
+      animation.add_tileset(19, {8, 8}, gf::seconds(1.0f / 25.0f), 16);
+      animation.add_tileset(20, {8, 8}, gf::seconds(1.0f / 25.0f), 41);
+
       hero_animations.data.animations.emplace("change_mask_blue_to_red_left"_id, animation);
+    }
+
+    {
+      gf::AnimationData animation;
+      animation.add_tileset(18, {8, 8}, gf::seconds(1.0f / 25.0f), 64);
+      animation.add_tileset(19, {8, 8}, gf::seconds(1.0f / 25.0f), 16);
+      animation.add_tileset(21, {8, 8}, gf::seconds(1.0f / 25.0f), 41);
+
       hero_animations.data.animations.emplace("change_mask_blue_to_green_left"_id, animation);
+    }
+
+    {
+      gf::AnimationData animation;
+      animation.add_tileset(18, {8, 8}, gf::seconds(1.0f / 25.0f), 64);
+      animation.add_tileset(19, {8, 8}, gf::seconds(1.0f / 25.0f), 16);
+      animation.add_tileset(21, {8, 8}, gf::seconds(1.0f / 25.0f), 41);
+
       hero_animations.data.animations.emplace("change_mask_blue_to_blue_left"_id, animation);
     }
 
     {
       gf::AnimationData animation;
       animation.add_tileset(14, {8, 8}, gf::seconds(1.0f / 25.0f), gf::AnimationFrameFlip::Horizontally, 64);
-      animation.add_tileset(15, {8, 8}, gf::seconds(1.0f / 25.0f), gf::AnimationFrameFlip::Horizontally, 12);
-      animation.add_tileset(16, {8, 8}, gf::seconds(1.0f / 25.0f), gf::AnimationFrameFlip::Horizontally, 45);
+      animation.add_tileset(15, {8, 8}, gf::seconds(1.0f / 25.0f), gf::AnimationFrameFlip::Horizontally, 16);
+      animation.add_tileset(20, {8, 8}, gf::seconds(1.0f / 25.0f), gf::AnimationFrameFlip::Horizontally, 41);
 
       hero_animations.data.animations.emplace("change_mask_red_to_red_right"_id, animation);
-      // FIXME: Generate the right animations when the texture will be available
+    }
+
+    {
+      gf::AnimationData animation;
+      animation.add_tileset(14, {8, 8}, gf::seconds(1.0f / 25.0f), gf::AnimationFrameFlip::Horizontally, 64);
+      animation.add_tileset(15, {8, 8}, gf::seconds(1.0f / 25.0f), gf::AnimationFrameFlip::Horizontally, 16);
+      animation.add_tileset(21, {8, 8}, gf::seconds(1.0f / 25.0f), gf::AnimationFrameFlip::Horizontally, 41);
+
       hero_animations.data.animations.emplace("change_mask_red_to_green_right"_id, animation);
+    }
+
+    {
+      gf::AnimationData animation;
+      animation.add_tileset(14, {8, 8}, gf::seconds(1.0f / 25.0f), gf::AnimationFrameFlip::Horizontally, 64);
+      animation.add_tileset(15, {8, 8}, gf::seconds(1.0f / 25.0f), gf::AnimationFrameFlip::Horizontally, 16);
+      animation.add_tileset(22, {8, 8}, gf::seconds(1.0f / 25.0f), gf::AnimationFrameFlip::Horizontally, 41);
+
       hero_animations.data.animations.emplace("change_mask_red_to_blue_right"_id, animation);
+    }
+
+    {
+      gf::AnimationData animation;
+      animation.add_tileset(16, {8, 8}, gf::seconds(1.0f / 25.0f), gf::AnimationFrameFlip::Horizontally, 64);
+      animation.add_tileset(17, {8, 8}, gf::seconds(1.0f / 25.0f), gf::AnimationFrameFlip::Horizontally, 16);
+      animation.add_tileset(20, {8, 8}, gf::seconds(1.0f / 25.0f), gf::AnimationFrameFlip::Horizontally, 41);
+
       hero_animations.data.animations.emplace("change_mask_green_to_red_right"_id, animation);
+    }
+
+    {
+      gf::AnimationData animation;
+      animation.add_tileset(16, {8, 8}, gf::seconds(1.0f / 25.0f), gf::AnimationFrameFlip::Horizontally, 64);
+      animation.add_tileset(17, {8, 8}, gf::seconds(1.0f / 25.0f), gf::AnimationFrameFlip::Horizontally, 16);
+      animation.add_tileset(21, {8, 8}, gf::seconds(1.0f / 25.0f), gf::AnimationFrameFlip::Horizontally, 41);
+
       hero_animations.data.animations.emplace("change_mask_green_to_green_right"_id, animation);
+    }
+
+    {
+      gf::AnimationData animation;
+      animation.add_tileset(16, {8, 8}, gf::seconds(1.0f / 25.0f), gf::AnimationFrameFlip::Horizontally, 64);
+      animation.add_tileset(17, {8, 8}, gf::seconds(1.0f / 25.0f), gf::AnimationFrameFlip::Horizontally, 16);
+      animation.add_tileset(22, {8, 8}, gf::seconds(1.0f / 25.0f), gf::AnimationFrameFlip::Horizontally, 41);
+
       hero_animations.data.animations.emplace("change_mask_green_to_blue_right"_id, animation);
+    }
+
+    {
+      gf::AnimationData animation;
+      animation.add_tileset(18, {8, 8}, gf::seconds(1.0f / 25.0f), gf::AnimationFrameFlip::Horizontally, 64);
+      animation.add_tileset(19, {8, 8}, gf::seconds(1.0f / 25.0f), gf::AnimationFrameFlip::Horizontally, 16);
+      animation.add_tileset(20, {8, 8}, gf::seconds(1.0f / 25.0f), gf::AnimationFrameFlip::Horizontally, 41);
+
       hero_animations.data.animations.emplace("change_mask_blue_to_red_right"_id, animation);
+    }
+
+    {
+      gf::AnimationData animation;
+      animation.add_tileset(18, {8, 8}, gf::seconds(1.0f / 25.0f), gf::AnimationFrameFlip::Horizontally, 64);
+      animation.add_tileset(19, {8, 8}, gf::seconds(1.0f / 25.0f), gf::AnimationFrameFlip::Horizontally, 16);
+      animation.add_tileset(21, {8, 8}, gf::seconds(1.0f / 25.0f), gf::AnimationFrameFlip::Horizontally, 41);
+
       hero_animations.data.animations.emplace("change_mask_blue_to_green_right"_id, animation);
+    }
+
+    {
+      gf::AnimationData animation;
+      animation.add_tileset(18, {8, 8}, gf::seconds(1.0f / 25.0f), gf::AnimationFrameFlip::Horizontally, 64);
+      animation.add_tileset(19, {8, 8}, gf::seconds(1.0f / 25.0f), gf::AnimationFrameFlip::Horizontally, 16);
+      animation.add_tileset(21, {8, 8}, gf::seconds(1.0f / 25.0f), gf::AnimationFrameFlip::Horizontally, 41);
+
       hero_animations.data.animations.emplace("change_mask_blue_to_blue_right"_id, animation);
     }
 

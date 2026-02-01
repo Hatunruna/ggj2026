@@ -20,5 +20,9 @@ magick montage -background transparent -tile 8x8 -geometry 128x128 "$SCRIPT_DIR/
 magick montage -background transparent -tile 8x8 -geometry 128x128 "$SCRIPT_DIR/pause/down/blue/*" "png32:$SCRIPT_DIR/../../../data/animations/hero/pause-down-blue.png"
 
 magick montage -background transparent -tile 8x8 -geometry 128x128 "$SCRIPT_DIR/wear-mask/red/*" "png32:$SCRIPT_DIR/../../../data/animations/hero/wear-mask-red.png"
+magick montage -background transparent -tile 8x8 -geometry 128x128 "$SCRIPT_DIR/wear-mask/green/*" "png32:$SCRIPT_DIR/../../../data/animations/hero/wear-mask-green.png"
+magick montage -background transparent -tile 8x8 -geometry 128x128 "$SCRIPT_DIR/wear-mask/blue/*" "png32:$SCRIPT_DIR/../../../data/animations/hero/wear-mask-blue.png"
 
 magick montage -background transparent -tile 8x8 -geometry 128x128 "$SCRIPT_DIR/remove-mask/red/*" "png32:$SCRIPT_DIR/../../../data/animations/hero/remove-mask-red.png"
+magick montage -background transparent -tile 8x8 -geometry 128x128 "$SCRIPT_DIR/remove-mask/green/*" "png32:$SCRIPT_DIR/../../../data/animations/hero/remove-mask-green.png"
+magick montage -background transparent -tile 8x8 -geometry 128x128 "$SCRIPT_DIR/remove-mask/blue/*" "png32:$SCRIPT_DIR/../../../data/animations/hero/remove-mask-blue.png"

@@ -47,6 +47,11 @@ namespace glt {
     return map.ref->masks[map.current_mask].color;
   }
 
+  MaskColor WorldState::next_mask_color() const
+  {
+    return map.ref->masks[map.next_mask].color;
+  }
+
   bool WorldState::reachable(gf::Vec2I position) const
   {
     const MaskMap& mask = map.ref->masks[map.current_mask];
