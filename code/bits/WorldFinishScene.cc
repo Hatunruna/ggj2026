@@ -45,7 +45,7 @@ namespace glt {
     using namespace gf::literals;
 
     if (m_action_group.active("finish"_id)) {
-      gf::BasicScene* scenes[] = { &m_game->kickoff_act()->common_scene, &m_game->kickoff_act()->welcome_scene };
+      gf::BasicScene* scenes[] = { &m_game->kickoff_act()->common_scene, &m_game->kickoff_act()->background_scene, &m_game->kickoff_act()->welcome_scene };
       m_game->replace_all_scenes(scenes);
     }
 
