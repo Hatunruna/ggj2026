@@ -8,8 +8,6 @@
 #include "Game.h"
 #include "HeroState.h"
 #include "MaskColor.h"
-#include "gf2/core/Direction.h"
-#include "gf2/core/Id.h"
 
 namespace glt {
 
