@@ -116,9 +116,9 @@
  <tile id="179"/>
  <wangsets>
   <wangset name="Biomes" type="corner" tile="-1">
-   <wangcolor name="Red" color="#b62929" tile="0" probability="1"/>
-   <wangcolor name="Green" color="#46d943" tile="4" probability="1"/>
-   <wangcolor name="Blue" color="#37ae3" tile="8" probability="1"/>
+   <wangcolor name="Red" color="#b76f6f" tile="0" probability="1"/>
+   <wangcolor name="Green" color="#85d983" tile="4" probability="1"/>
+   <wangcolor name="Blue" color="#8ab8e4" tile="8" probability="1"/>
    <wangcolor name="Sand" color="#cacaca" tile="12" probability="1"/>
    <wangtile tileid="0" wangid="0,1,0,1,0,1,0,1"/>
    <wangtile tileid="1" wangid="0,1,0,1,0,1,0,1"/>
