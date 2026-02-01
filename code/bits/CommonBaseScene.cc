@@ -8,7 +8,6 @@ namespace glt {
   : m_game(game)
   , m_action_group(compute_settings())
   {
-    game->window()->toggle_fullscreen();
   }
 
   gf::ActionGroupSettings CommonBaseScene::compute_settings()
