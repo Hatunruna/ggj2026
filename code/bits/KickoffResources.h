@@ -24,6 +24,7 @@ namespace glt {
     gf::TextResource arrow_text;
     gf::TextResource tutorial_text;
     gf::TextResource level01_text;
+    gf::TextResource level02_text;
 
   };
 

@@ -47,6 +47,11 @@ namespace glt {
     level01_text.data.content = "Level #01";
     level01_text.data.color = GelatineYellow;
     level01_text.data.character_size = 48.0f;
+
+    level02_text.font = "thickhea.ttf";
+    level02_text.data.content = "Level #02";
+    level02_text.data.color = GelatineYellow;
+    level02_text.data.character_size = 48.0f;
   }
 
   gf::ResourceBundle KickoffResources::bundle(Game* game) const

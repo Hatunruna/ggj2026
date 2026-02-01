@@ -36,6 +36,7 @@ namespace glt {
     gf::TextEntity m_arrow_text;
     gf::TextEntity m_tutorial_text;
     gf::TextEntity m_level01_text;
+    gf::TextEntity m_level02_text;
   };
 
 }
