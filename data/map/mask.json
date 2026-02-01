@@ -54,6 +54,21 @@
 				"deviation": 0.1,
 				"size": 5
 			}
+		},
+		{
+			"id": "Sand",
+			"color": [
+				0.90799034,
+				0.8492264,
+				0.6155867,
+				1.0
+			],
+			"pigment": {
+				"style": "randomize",
+				"ratio": 0.04,
+				"deviation": 0.25,
+				"size": 5
+			}
 		}
 	],
 	"wang2": [

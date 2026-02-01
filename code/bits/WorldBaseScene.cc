@@ -30,7 +30,7 @@ namespace glt {
   , m_mask_map(game, resources.map)
   , m_sounds(game, resources)
   {
-    set_clear_color(gf::White);
+    set_clear_color(0xE8D99D);
 
     set_world_size(TileSize * 10);
     set_world_center(TileSize * 5);
