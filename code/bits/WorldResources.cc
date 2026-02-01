@@ -258,6 +258,11 @@ namespace glt {
 
     blue_mask_audio.filename = "audio/blue-mask.ogg";
     blue_mask_audio.data.loop = true;
+
+    finish_text.font = "thickhea.ttf";
+    finish_text.data.content = "Congratulations! You found the star!";
+    finish_text.data.color = GelatineYellow;
+    finish_text.data.character_size = 128.0f;
   }
 
   gf::ResourceBundle WorldResources::bundle(Game* game) const
