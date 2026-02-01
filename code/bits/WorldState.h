@@ -21,6 +21,7 @@ namespace glt {
     bool is_mask_collected(std::size_t index) const;
     bool is_mask_available(std::size_t index) const;
     bool is_mask_current(std::size_t index) const;
+    MaskColor mask_color(std::size_t index) const;
 
     MapState map;
     HeroState hero;

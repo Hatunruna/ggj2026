@@ -136,6 +136,7 @@ namespace glt {
     blue_mask_sprite_shaded.texture = "sprites/blue_mask.png";
     blue_mask_sprite_shaded.data.color = ShadeColor;
 
+    placeholder_mask.texture = "sprites/unknown_mask.png";
 
     red_mask_audio.filename = "audio/red-mask.ogg";
     red_mask_audio.data.loop = true;
@@ -165,6 +166,14 @@ namespace glt {
     builder.add_in_bundle(red_mask_audio);
     builder.add_in_bundle(green_mask_audio);
     builder.add_in_bundle(blue_mask_audio);
+
+    builder.add_in_bundle(red_mask_sprite);
+    builder.add_in_bundle(red_mask_sprite_shaded);
+    builder.add_in_bundle(green_mask_sprite);
+    builder.add_in_bundle(green_mask_sprite_shaded);
+    builder.add_in_bundle(blue_mask_sprite);
+    builder.add_in_bundle(blue_mask_sprite_shaded);
+    builder.add_in_bundle(placeholder_mask);
 
     return builder.make_bundle();
   }

@@ -31,6 +31,7 @@ namespace glt {
     gf::SpriteResource green_mask_sprite_shaded;
     gf::SpriteResource blue_mask_sprite;
     gf::SpriteResource blue_mask_sprite_shaded;
+    gf::SpriteResource placeholder_mask;
 
     gf::AudioSourceResource red_mask_audio;
     gf::AudioSourceResource green_mask_audio;

@@ -10,6 +10,7 @@
 #include <gf2/graphics/Scene.h>
 
 #include "HeroEntity.h"
+#include "InventoryHudEntity.h"
 #include "MapGroundEntity.h"
 #include "MapMaskEntity.h"
 #include "MaskEntity.h"
@@ -32,6 +33,8 @@ namespace glt {
 
     Game* m_game = nullptr;
     gf::ActionGroup m_action_group;
+
+    InventoryHudEntity m_inventory;
 
     MapGroundEntity m_ground_map;
     MaskEntity m_mask;

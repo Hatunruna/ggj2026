@@ -3,6 +3,8 @@
 
 #include "WorldState.h"
 
+#include <cassert>
+
 #include <gf2/core/Log.h>
 
 #include "WorldData.h"
@@ -72,6 +74,13 @@ namespace glt {
   bool WorldState::is_mask_current(std::size_t index) const
   {
     return index == map.current_mask;
+  }
+
+  MaskColor WorldState::mask_color(std::size_t index) const
+  {
+    assert(map.ref != nullptr);
+    assert(index < map.ref->masks.size());
+    return map.ref->masks[index].color;
   }
 
 }

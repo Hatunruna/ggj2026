@@ -15,7 +15,6 @@
 
 #include "Constants.h"
 #include "Game.h"
-#include "MaskColor.h"
 #include "WorldState.h"
 #include "gf2/graphics/Scene.h"
 
@@ -24,6 +23,7 @@ namespace glt {
   WorldBaseScene::WorldBaseScene(Game* game, const WorldResources& resources)
   : m_game(game)
   , m_action_group(compute_settings())
+  , m_inventory(game, resources)
   , m_ground_map(game, resources.map)
   , m_mask(game, resources)
   , m_hero(game, resources)
@@ -36,6 +36,8 @@ namespace glt {
     set_world_center(TileSize * 5);
 
     add_model(game->world_model());
+
+    add_hud_entity(&m_inventory);
 
     add_world_entity(&m_ground_map);
     add_world_entity(&m_mask);
