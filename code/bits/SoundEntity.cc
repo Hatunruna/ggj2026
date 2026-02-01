@@ -40,15 +40,12 @@ namespace glt {
       switch (m_mask_color) {
       case MaskColor::Red:
         m_red_mask_sound->set_fade(1.0f, 0.0f, MaskAudioFade);
-        m_red_mask_sound->set_volume(0.0f);
       break;
       case MaskColor::Blue:
         m_blue_mask_sound->set_fade(1.0f, 0.0f, MaskAudioFade);
-        m_blue_mask_sound->set_volume(0.0f);
         break;
       case MaskColor::Green:
         m_green_mask_sound->set_fade(1.0f, 0.0f, MaskAudioFade);
-        m_green_mask_sound->set_volume(0.0f);
         break;
 
       default:
@@ -68,15 +65,12 @@ namespace glt {
     switch (m_mask_color) {
     case MaskColor::Red:
       m_red_mask_sound->set_fade(1.0f, 0.0f, MaskAudioFade);
-      m_red_mask_sound->set_volume(0.0f);
      break;
     case MaskColor::Blue:
       m_blue_mask_sound->set_fade(1.0f, 0.0f, MaskAudioFade);
-      m_blue_mask_sound->set_volume(0.0f);
       break;
     case MaskColor::Green:
       m_green_mask_sound->set_fade(1.0f, 0.0f, MaskAudioFade);
-      m_green_mask_sound->set_volume(0.0f);
       break;
 
     default:
