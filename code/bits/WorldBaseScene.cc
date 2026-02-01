@@ -126,7 +126,7 @@ namespace glt {
               break;
             }
             if (level_setting.index != state->map.current_mask && state->is_mask_available(level_setting.index)) {
-              state->map.current_mask = level_setting.index;
+              state->map.next_mask = level_setting.index;
               hero->status = HeroStatus::ChangeMask;
               break;
             }

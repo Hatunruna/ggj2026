@@ -65,7 +65,7 @@ namespace glt {
     m_placeholder_mask.set_scale(sprite_scale * 0.9f);
   }
 
-  void InventoryHudEntity::update(gf::Time time)
+  void InventoryHudEntity::update([[maybe_unused]] gf::Time time)
   {
     std::size_t current_mask = m_game->world_state()->map.current_mask;
 

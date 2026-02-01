@@ -19,6 +19,7 @@ namespace glt {
     const MapData* ref = nullptr;
     std::vector<MaskState> masks;
     std::size_t current_mask = 0;
+    std::size_t next_mask = 0;
 
     void initialize_with(const MapData& data);
   };
