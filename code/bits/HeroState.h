@@ -3,6 +3,8 @@
 #ifndef GLT_HERO_STATE_H
 #define GLT_HERO_STATE_H
 
+#include <cstdint>
+
 #include <gf2/core/Direction.h>
 #include <gf2/core/Time.h>
 #include <gf2/core/Vec2.h>
@@ -11,7 +13,17 @@
 
 namespace glt {
 
+  enum class HeroStatus : uint8_t {
+    Start,
+    Move,
+    ChangeMask,
+    Finish,
+    End,
+  };
+
   struct HeroState {
+    HeroStatus status = HeroStatus::Move;
+
     gf::Vec2I tile_location = { 0, 0 };
     gf::Vec2I tile_target = { 0, 0 };
     gf::Vec2F world_location = {0.0f, 0.0f};

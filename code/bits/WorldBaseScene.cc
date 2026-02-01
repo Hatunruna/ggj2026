@@ -136,8 +136,14 @@ namespace glt {
 
   void WorldBaseScene::do_update([[maybe_unused]] gf::Time time)
   {
-    const gf::Vec2F hero_location = m_game->world_state()->hero.world_location;
+    const HeroState* hero = &m_game->world_state()->hero;
+
+    const gf::Vec2F hero_location = hero->world_location;
     set_world_center(hero_location);
+
+    if (hero->status == HeroStatus::End) {
+      m_game->replace_scene(&m_game->world_act()->finish_scene);
+    }
 
     update_entities(time);
   }

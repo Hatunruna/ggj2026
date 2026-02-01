@@ -5,6 +5,7 @@
 
 #include "CommonBaseScene.h"
 #include "WorldBaseScene.h"
+#include "WorldFinishScene.h"
 #include "WorldResources.h"
 
 namespace glt {
@@ -15,6 +16,7 @@ namespace glt {
 
     CommonBaseScene common_scene;
     WorldBaseScene base_scene;
+    WorldFinishScene finish_scene;
 
   };
 

@@ -59,6 +59,12 @@ namespace glt {
       }
     }
 
+    // check end
+
+    if (state.hero.tile_location == state.map.ref->goal) {
+      state.hero.status = HeroStatus::End; // TODO: change when finish animation available
+    }
+
   }
 
 }

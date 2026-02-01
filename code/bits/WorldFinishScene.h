@@ -3,6 +3,7 @@
 #ifndef GLT_WORLD_FINISH_SCENE_H
 #define GLT_WORLD_FINISH_SCENE_H
 
+#include <gf2/core/ActionGroup.h>
 #include <gf2/graphics/Scene.h>
 #include <gf2/graphics/TextEntity.h>
 
@@ -16,6 +17,14 @@ namespace glt {
     WorldFinishScene(Game* game, const WorldResources& resources);
 
   private:
+    static gf::ActionGroupSettings compute_settings();
+
+    void do_process_event(const gf::Event& event) override;
+    void do_handle_actions() override;
+
+    Game* m_game;
+
+    gf::ActionGroup m_action_group;
     gf::FontAtlas m_atlas;
     gf::TextEntity m_finish_text;
   };
