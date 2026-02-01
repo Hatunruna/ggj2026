@@ -10,7 +10,7 @@ namespace glt {
   namespace {
 
     constexpr gf::Vec2F KickoffMenuSceneSize = { 1600, 900 };
-    constexpr std::size_t MapCount = 3;
+    constexpr std::size_t MapCount = 4;
 
   }
 
@@ -23,6 +23,7 @@ namespace glt {
   , m_tutorial_text(&m_atlas, resources.tutorial_text, game->render_manager(), game->resource_manager())
   , m_level01_text(&m_atlas, resources.level01_text, game->render_manager(), game->resource_manager())
   , m_level02_text(&m_atlas, resources.level02_text, game->render_manager(), game->resource_manager())
+  , m_level03_text(&m_atlas, resources.level03_text, game->render_manager(), game->resource_manager())
   {
     set_world_size(KickoffMenuSceneSize);
     set_world_center(KickoffMenuSceneSize / 2.0f);
@@ -41,6 +42,10 @@ namespace glt {
     m_level02_text.set_origin({ 0.0f, 0.5f });
     m_level02_text.set_location(KickoffMenuSceneSize * gf::vec(0.4, 0.5));
     add_world_entity(&m_level02_text);
+
+    m_level03_text.set_origin({ 0.0f, 0.5f });
+    m_level03_text.set_location(KickoffMenuSceneSize * gf::vec(0.4, 0.6));
+    add_world_entity(&m_level03_text);
 
     compute_arrow_position();
 
@@ -72,6 +77,7 @@ namespace glt {
       "map/tutorial.tmx",
       "map/level01.tmx",
       "map/level02.tmx",
+      "map/level03.tmx",
     };
 
     static_assert(std::size(paths) == MapCount);
