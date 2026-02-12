@@ -16,6 +16,7 @@ jobs:
         - { name: Windows,  runner: windows-latest, shell: pwsh, plat: windows, arch: x64,    kind: static, mode: release     }
         - { name: Linux,    runner: ubuntu-latest,  shell: bash, plat: linux,   arch: x86_64, kind: static, mode: debug       }
         - { name: Linux,    runner: ubuntu-latest,  shell: bash, plat: linux,   arch: x86_64, kind: static, mode: release     }
+        - { name: macOS,    runner: macos-latest,   shell: bash, plat: macosx,  arch: arm64,  kind: static, mode: debug       }
         - { name: macOS,    runner: macos-latest,   shell: bash, plat: macosx,  arch: arm64,  kind: static, mode: release     }
 
     defaults:
