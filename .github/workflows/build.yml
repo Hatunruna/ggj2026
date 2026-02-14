@@ -16,6 +16,8 @@ jobs:
         - { name: Windows,  runner: windows-latest, shell: pwsh, plat: windows, arch: x64,    kind: static, mode: release     }
         - { name: Linux,    runner: ubuntu-latest,  shell: bash, plat: linux,   arch: x86_64, kind: static, mode: debug       }
         - { name: Linux,    runner: ubuntu-latest,  shell: bash, plat: linux,   arch: x86_64, kind: static, mode: release     }
+        - { name: macOS,    runner: macos-latest,   shell: bash, plat: macosx,  arch: arm64,  kind: static, mode: debug       }
+        - { name: macOS,    runner: macos-latest,   shell: bash, plat: macosx,  arch: arm64,  kind: static, mode: release     }
 
     defaults:
       run:
@@ -55,7 +57,7 @@ jobs:
           key: ${{ matrix.configurations.plat }}-${{ matrix.configurations.arch }}-${{ matrix.configurations.kind }}-${{ matrix.configurations.mode }}-${{ steps.deps_hash.outputs.hash }}
 
       - name: Install dependencies
-        run: xmake config --plat=${{ matrix.configurations.plat }} --arch=${{ matrix.configurations.arch }} --kind=${{ matrix.configurations.kind }} --mode=${{ matrix.configurations.mode }} --yes
+        run: xmake config --verbose --plat=${{ matrix.configurations.plat }} --arch=${{ matrix.configurations.arch }} --kind=${{ matrix.configurations.kind }} --mode=${{ matrix.configurations.mode }} --yes
 
       - name: Save cached xmake dependencies
         if: ${{ !steps.restore-cache.outputs.cache-hit }}
