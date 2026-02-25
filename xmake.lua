@@ -1,7 +1,7 @@
 -- SPDX-License-Identifier: GPL-3.0-or-later
 -- Copyright (c) 2025 Julien Bernard
 set_project("gelatine")
-set_version("1.0.0")
+set_version("1.0.1")
 
 add_repositories("gf-repo https://github.com/GamedevFramework/xmake-repo")
 
