@@ -18,7 +18,7 @@ namespace glt {
 #ifdef SDL_PLATFORM_LINUX
     resource_manager()->add_search_directory(glt::GameDataDirectory);
 #endif
-    resource_manager()->add_search_directory(gf::application_base_path());
+    resource_manager()->add_search_directory(gf::application_base_path() / "data");
 
     gf::ResourceBundle kickoff_bundle = m_kickoff_resources.bundle(this);
     kickoff_bundle.load_from(resource_manager());
